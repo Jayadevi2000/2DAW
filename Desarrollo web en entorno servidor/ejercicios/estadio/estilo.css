@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+body {
+	background: linear-gradient(to right, #FFFF6B, #FFFF5F);
+}
+
+a{
+	color: white;
+}
+
+g {
+	stroke: black;
+	stroke-width: 2px;
+	fill: white;
+}
+
+table {
+	border: 1px solid black;
+	height: 252px;
+	width: 125px;
+	text-align: left;
+}
+
+svg {
+	border: 1px solid black;
+	width: 250px;
+	height: 250px;
+}
+
+h1 {
+	color: white;
+	text-shadow: 2px 2px #000;
+}
+
+circle {
+	r: 10px;
+}
+
+.divForma {
+	float: left;
+}
+
+.divTabla {
+	float: right;
+}
+
+.contenedorPadre {
+	text-align: center;
+}
+
+.contenedor {
+	align: center;
+	display: inline-block;
+}
+
+.focosX {
+	width: 20px;
+	height: 10px;
+}
+
+.focosY {
+	width: 10px;
+	height: 20px;
+}
+
+.salidasX {
+	rx: 10px;
+	ry: 5px;
+}
+
+.salidasY {
+	rx: 5px;
+	ry: 10px;
+}

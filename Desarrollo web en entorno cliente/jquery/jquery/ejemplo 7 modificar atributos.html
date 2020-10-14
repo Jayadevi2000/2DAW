@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" >
+/*Definir una tabla sin el atributo border. 
+Al presionar un botón añadirle la propiedad border con el valor 1. 
+Si se presiona otro botón recuperar y mostrar el valor del atributo border y 
+por último si se presiona otro botón eliminar la propiedad border.*/
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x=$("#boton1");
+  x.click(agregarPropiedadBorder);
+  x=$("#boton2");
+  x.click(recuperarPropiedadBorder);
+  x=$("#boton3");
+  x.click(eliminarPropiedadBorder);
+}
+
+function agregarPropiedadBorder()
+{
+  var x=$("#tabla1");
+  x.attr("border","1");
+}
+
+function recuperarPropiedadBorder()
+{
+  var x=$("#tabla1");
+  if (x.attr("border")!=undefined)
+    alert(x.attr("border"));
+  else
+    alert("No está definida la propiedad border en la tabla");
+}
+
+function eliminarPropiedadBorder()
+{
+  var x=$("#tabla1");
+  x.removeAttr("border");
+}
+</script>
+</head>
+<body>
+<input type="button" id="boton1" value="Añadir 
+propiedad border"><br>
+<input type="button" id="boton2" value="Recuperar 
+valor de la propiedad border"><br>
+<input type="button" id="boton3" value="Eliminar la 
+propiedad border">
+<table id="tabla1">
+<tr>
+<td>1111111111</td><td>1111111111</td><td>1111111111</td><td>1111111111</td>
+</tr>
+<tr>
+<td>2222222222</td><td>2222222222</td><td>2222222222</td><td>2222222222</td>
+</tr>
+<tr>
+<td>3333333333</td><td>3333333333</td><td>3333333333</td><td>3333333333</td>
+</tr>
+</table>
+</body>
+</html>
+

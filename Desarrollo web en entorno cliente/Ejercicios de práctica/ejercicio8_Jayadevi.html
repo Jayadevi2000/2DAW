@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+             document.onkeydown =desaparecer;
+             alert("hola")
+        }
+var coorX=0;
+  var coorY=0;
+        function desaparecer(elEvento){                 
+                
+     var evento = elEvento || window.event;            
+
+            var imagen1 = document.getElementById("img");            
+ 
+    switch(evento.keyCode){
+        case 39://derecha
+
+          if(coorX<900){
+         coorX+=100;
+          imagen1.style.left = coorX+"px";
+        }
+    break;
+        case 37://izquierda
+
+          if (coorX>0) {
+         coorX-=100;
+          imagen1.style.left = coorX+"px";}
+    break;
+        case 38://arriba
+
+          if (coorY>0) {
+         coorY-=50;
+          imagen1.style.top = coorY+"px";}
+    break;
+    case 40://abajo
+
+          if(coorY<500){
+         coorY+=50;
+          imagen1.style.top = coorY+"px";}
+    break;
+        
+        case 13:
+
+           imagen1.hidden="false";
+        break;
+        
+    }
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div style="border-style: solid;border-color: blue; height: 550px; width: 1000px;">
+    <img id="img" src="bandera de canada.jpg"  style="position:relative; left:0px; top:0px ; width:100px;height: 50px; " />
+</div>
+</body>
+</html>

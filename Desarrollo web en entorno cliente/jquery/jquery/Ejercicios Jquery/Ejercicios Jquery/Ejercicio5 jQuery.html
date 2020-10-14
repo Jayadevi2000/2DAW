@@ -1,0 +1,40 @@
+<html> 
+<head> 
+<title>Ejercicio 5</title> 
+<script type="text/javascript" src="jquery.js"></script>
+ <script type="text/javascript" >
+ 
+var x; 
+x=$(document); 
+x.ready(inicializarEventos); 
+
+function inicializarEventos() { 
+var x; 
+x=$("#lista1 li:first"); 
+x.click(ocultarItem);
+ }
+
+ function ocultarItem() {
+ var x;
+ x=$("#lista1 li:first").hide();
+ }
+ 
+</script> 
+</head> 
+<body>
+ <h2>Lista 1</h2>
+ <ul id="lista1">
+              <li>Tortilla</li>
+              <li>Jamon</li>
+              <li>Queso</li> 
+ </ul> 
+
+ <h2>Lista 2</h2>
+ <ul id="lista2"> 
+        <li>Coca cola</li>
+        <li>Leche</li> 
+        <li>Te</li> 
+ </ul> 
+
+</body> 
+</html> 

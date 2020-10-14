@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" >
+/*Resaltar con fondo amarillo todos los párrafos que tienen menos de 100 caracteres.*/
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$("#parrafos p");
+  x.each(resaltarParrafos);
+}
+
+function resaltarParrafos()
+{
+  var x=$(this);
+  if (x.text().length<100)
+  {
+    x.css("background-color","#ff0");
+  }
+}
+
+</script>
+</head>
+<body>
+<div id="parrafos">
+<p>párrafo 1 - párrafo 1 - párrafo 1 - párrafo 
+1 - párrafo 1 - párrafo 1 - párrafo 1 - párrafo 1 - 
+párrafo 1 - párrafo 1 - párrafo 1 - párrafo 1 - párrafo 
+1 - párrafo 1 - párrafo 1 - párrafo 1 - 
+párrafo 1 - párrafo 1 - párrafo 1 - párrafo 1 - párrafo 
+1 - párrafo 1 - párrafo 1 - párrafo 1 - 
+párrafo 1 - párrafo 1 - párrafo 1 - párrafo 1 - párrafo 
+1 - párrafo 1 - párrafo 1 - párrafo 1</p>
+<p>párrafo 2 - párrafo 2 - párrafo 2 - párrafo 2</p>
+<p>párrafo 3 - párrafo 3 - párrafo 3 - párrafo 
+3 - párrafo 3 - párrafo 3 - párrafo 3 - 
+párrafo 3 - párrafo 3 - párrafo 3 - párrafo 3 - párrafo 
+3 - párrafo 3 - párrafo 3 - 
+párrafo 3 - párrafo 3 - párrafo 3 - párrafo 3 - párrafo 
+3 - párrafo 3 - párrafo 3 - párrafo 3 - 
+párrafo 3 - párrafo 3 - párrafo 3 - párrafo 3 - párrafo 
+3 - párrafo 3</p>
+<p>párrafo 4 - párrafo 4 - párrafo 4 - párrafo 
+4 - párrafo 4</p>
+</div>
+</body> 
+</html> 
+

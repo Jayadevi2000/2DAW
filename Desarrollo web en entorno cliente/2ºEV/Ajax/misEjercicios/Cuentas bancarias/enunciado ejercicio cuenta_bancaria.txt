@@ -1,0 +1,10 @@
+como tiene que ser esa funcion constructora para las cuentas:
+propiedades tiene q tener:
+Nº de cuenta
+nombre y saldo
+luego se van a necesitar los datos del banco, q son el nombre del banco y la direccción (propiedades)se lo ponemos en el prototype .
+debido a que son propiedades que van a tener el mismo valor para todos los objetos.
+un metodo para añadir una cuenta al array , este metodo va aser prototype 
+otro metodo para los movimientos 
+si llamas a una cuenta pasando por un parametro la cantidad que se quiera ingresar o reintegrar lo cual va aser preguntado después de pasar el parámetro
+funcion constructora las dospropiedades prototype dos funciones con prototype

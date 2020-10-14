@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" >
+
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$("#buscar");
+  x.focus(tomaFoco);
+}
+
+function tomaFoco()
+{
+  var x=$("#buscar");
+  x.attr("value","");
+}
+</script>
+</head>
+<body>
+<form action="#" method="post">
+<input type="text" name="buscar" id="buscar" 
+value="Buscar..." size="20">
+</form>
+</body>
+</html> 
+

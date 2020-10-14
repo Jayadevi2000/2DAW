@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script language="javascript"  type="text/javascript">
+/*Capturar el evento mousemove a nivel del objeto document, 
+este se dispara cada vez que desplazamos el mouse dentro de la página. 
+Mostrar la coordenada donde se encuentra la flecha del mouse.*/
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$(document);
+  x.mousemove(moverMouse);
+}
+
+function moverMouse(event)
+{
+var x;
+  x=$("#corx");
+  x.text("coordenada x="+event.clientX);
+  x=$("#cory");
+  x.text("coordenada y="+event.clientY);
+}
+</script>
+</head>
+<body>
+<p id="corx">coordenada x=</p>
+<p id="cory">coordenada y=</p>
+</body>
+</html>
+
+
+  

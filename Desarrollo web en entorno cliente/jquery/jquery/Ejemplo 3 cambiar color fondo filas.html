@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+$(document).ready(inicializarEventos); 
+
+function inicializarEventos() {
+alert("hola");	
+$("tr").click(presionFila);
+ }
+function presionFila() {
+ $(this).css("background-color","#eeeeee");
+ } 
+ 
+ </script>
+</head>
+<body>
+<table border="1">
+<tr id="fila1">
+<td>1111111111</td><td>1111111111</td><td>1111111111</td><td>1111111111</td>
+</tr>
+<tr id="fila2">
+<td>2222222222</td><td>2222222222</td><td>2222222222</td><td>2222222222</td>
+</tr>
+</table>
+</body>
+</html>

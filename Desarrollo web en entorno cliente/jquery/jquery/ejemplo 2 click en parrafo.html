@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Ejemplo</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+$(document).ready(inicializarEventos);
+
+function inicializarEventos()
+{
+ 
+  $("#parrafo1").click(presionParrafo);
+}
+
+function presionParrafo()
+{
+  alert("Se presionó el párrafo");
+}
+</script>
+</head>
+<body>
+<p id="parrafo1">Primer párrafo</p>
+<p>Segundo párrafo</p>
+</body>
+</html>

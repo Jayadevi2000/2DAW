@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejercicio</title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById("start").onclick=crear;
+	}
+	function crear(){
+		var parrafo =document.createElement("p");
+		var contenido=document.createTextNode("Este es el texto");
+		parrafo.appendChild(contenido);
+		document.body.appendChild(parrafo);
+
+		
+		var neg=document.createElement("strong");
+		var contenido= document.createTextNode(" en negrita");
+		neg.appendChild(contenido);
+		parrafo.appendChild(neg);
+
+		
+	}
+</script>
+</body>
+<div id="negrita">
+        <input type="button" id="start" value="start"/>
+</div>
+
+</html>

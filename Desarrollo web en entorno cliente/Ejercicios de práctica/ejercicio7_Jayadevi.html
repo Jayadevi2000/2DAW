@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejercicio7</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			 var hijos=document.getElementsByName('hijos');alert("jkj");
+			 for (var i=0;i<hijos.length;i++){
+					 hijos[i].onclick=Cliquear;
+					 hijos[i].onmouseover=Entrar;
+					 hijos[i].onmouseout=Salir;
+
+					alert("hola"+i);
+
+					}
+		}
+		function Cliquear(){
+			var parrafo = document.createElement("p");
+
+var contenido = document.createTextNode("has cliqueado el cuadrado "+this.id);
+
+parrafo.appendChild(contenido);
+this.appendChild(parrafo);
+
+		}
+		function Entrar(){
+		var parrafo = document.createElement("p");
+
+var contenido2 = document.createTextNode("has entrado en el cuadrado "+this.id);
+
+parrafo.appendChild(contenido2);
+this.appendChild(parrafo);
+
+		}
+			function Salir(){
+		var parrafo = document.createElement("p");
+
+var contenido3 = document.createTextNode("has salido del cuadrado "+this.id);
+
+parrafo.appendChild(contenido3);
+this.appendChild(parrafo);
+
+		}
+	</script>
+</head>
+<body>
+<div id="padre"style="width:1000px;height: 1000px; margin: auto;">
+<div id="izq-arriba" name="hijos" style=" float: left;  width: 40% ; height:40%; margin: 25px 25px;background-color:#40E0D0;"></div>
+<div id="dcha-arriba" name="hijos" style=" float: left; width: 40%; height:40%; margin: 25px 25px;background-color:#FFE4C4;"></div>
+<div id="izq-abajo" name="hijos" style="float: left; width: 40%; height:40%; margin: 25px 25px;background-color:#FF7F50;"></div>
+<div id="dcha-abajo" name="hijos" style="float: left; width: 40%; height:40%; margin: 25px 25px;background-color:#ADFF2F;"></div>
+</div>
+</body>
+</html>
+
+
+
+

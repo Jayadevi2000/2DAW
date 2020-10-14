@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays nombre y notas</title>
+	<script type="text/javascript">
+		var misNotas=new Array();
+		var misNombres=new Array();
+		window.onload=function(){
+			var nombre=document.getElementById('nombre');
+			var nota = document.getElementById('nota');	alert("hola1");
+
+			var guardar=document.getElementById('guardar');
+			guardar.onclick=guarda;
+			alert("hola2");
+		}
+		function guarda(){
+			if(nombre.value!="" && nota.value!=""){
+				misNombres.push(nombre.value);
+				misNotas.push(nota.value);
+				limpiar();
+				mostrarNombres();
+			}else{
+				alert("rellena los campos nombre y nota.");
+			}
+		}
+		function limpiar(){
+			nombre.value="";
+			nota.value="";
+		}
+		function mostrarNombres(){
+			for (var i=0;i<misNombres.length;i++){
+				var opcion=document.createElement("option");
+				select2.appendChild(opcion);
+
+			}}
+			function mostrarInfo(){
+				
+					var pos=select2.selectedIndex;
+					nombre.value=misNombres[pos];
+					nota.value=misNotas[pos];
+				
+			}
+		
+	</script>
+</head>
+<body>
+	<h2>Formulario Alumno</h2>
+Nombre: <input type="text" id="nombre">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Nombres: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select id="select">
+	
+</select><br><br>
+Nota: <input type="number" id="nota" min="0" max="10"><br><br>
+<input type="button" id="guardar" value="guardar">
+
+
+</body>
+</html>

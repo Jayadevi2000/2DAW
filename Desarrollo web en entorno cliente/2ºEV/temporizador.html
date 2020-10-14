@@ -1,0 +1,40 @@
+
+<html>
+
+  <head>
+
+    <title>My little countdown timer</title>
+
+    <script type="text/javascript">
+window.onload = function() {
+    var targetElements = document.getElementsByTagName("div")[0].children;
+    var element_p1 = targetElements[0];
+
+    var counter = document.getElementsByClassName("counter");
+
+
+    // Countdown with removal if zero
+    var countdown = function(numberStart, element) {
+        setInterval(function() {
+            element.innerHTML = numberStart;
+            numberStart--;
+
+            // removing element
+            if (numberStart < 0) {
+                clearInterval(this); //stop setInterval at 0
+                element_p1.remove();
+            }
+        }, 1000);
+        return 0;
+    };
+    countdown(30, counter[0]);
+    </script>
+  </head>
+  <body>
+        <h2>SetInterval and SetTimeout Demo</h2>
+    <div>
+        <p>This Element will be self-distroyed in <span class="counter">30</span> seconds</p>
+        <p><span>CLICK ME BEFORE COUNTDOWN IS UP!</span><br>Hurry up! Otherwise, all elements will be distroyed.<br>The Black Box can save this element in <span class="counter">5</span> seconds</p>
+    </div>
+    </body>
+</html>

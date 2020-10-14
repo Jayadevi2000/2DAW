@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" >
+/*Implementaremos una página que contenga tres hipervínculos, 
+cuando ingrese la flecha del mouse al hipervínculo cambiaremos el color de fondo, 
+retornando el color original cuando retiramos la flecha del elemento.*/
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$("p");
+  x.hover(entraMouse,saleMouse);
+}
+
+
+function entraMouse()
+{
+  alert("Tiene la flecha sobre el parrafo")
+}
+
+function saleMouse()
+{
+  alert("Quito la flecha del parrafo")
+}
+</script>
+</head>
+<body>
+<p> Esto es un parrafo </p>
+</body> 
+</html> 

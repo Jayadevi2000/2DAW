@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario</title>
+	<script type="text/javascript" src="funcionesValidacion.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var registro=document.getElementById("registro");
+			registro.onclick=validar;
+		}
+		function validar(){
+
+		var primer_apellido = document.getElementById("apellido1").value;
+if( primer_apellido == null || primer_apellido.length == 0 || /^\s+$/.test(primer_apellido) ) {
+
+ var errorapellido1=document.getElementById("errorapellido1");
+ errorapellido1.hidden=false;
+}
+else{
+	var errorapellido1=document.getElementById("errorapellido1");
+
+ errorapellido1.hidden=true;
+     	  
+
+}
+
+
+var errorapellido2=document.getElementById("errorapellido2");
+		segundo_apellido = document.getElementById("apellido2").value;
+if( segundo_apellido == null || segundo_apellido.length == 0 || /^\s+$/.test(segundo_apellido) ) {
+		
+
+ 
+ errorapellido2.hidden=false;
+}
+else{
+ errorapellido2.hidden=true;
+}
+ var errornombre=document.getElementById("errornombre");
+
+		nombre = document.getElementById("nombre").value;
+if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) ) {
+
+ errornombre.hidden=false;
+}
+else{
+ errornombre.hidden=true;
+}
+
+
+//Validar un número de DNI
+var errorDNI=document.getElementById("errorDNI");
+var dni = document.getElementById("dni").value;
+var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+if( !(/^\d{8}[A-Z]$/.test(dni)) ) {
+
+ errorDNI.hidden=false;
+}
+
+if(dni.charAt(8) != letras[(dni.substring(0, 8))%23]) {
+
+ errorDNI.hidden=false;
+}
+else{
+ errorDNI.hidden=true;
+}
+
+//Validar un campo de texto con valores numéricos
+var erroredad = document.getElementById("erroredad");
+var edad = document.getElementById("edad").value;
+if(isNaN(edad) || edad==null || edad=="") {
+
+ erroredad.hidden=false;
+}else{
+ erroredad.hidden=true;
+}
+//Validar una dirección de email
+var erroremail=document.getElementById("erroremail");
+var email = document.getElementById("email").value;
+if( !( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email))||  email=="") {
+ erroremail.hidden=false;
+}
+else{
+ erroremail.hidden=true;
+}
+
+
+//Validar que se ha seleccionado una opción de una lista
+var errorprovincia=document.getElementById("errorprovincia");
+var indice = document.getElementById("provincia").selectedIndex;
+if( indice == null || indice == 0 ) {
+ errorprovincia.hidden=false;
+}
+else{
+ errorprovincia.hidden=true;
+}
+
+
+	//Validar que un radiobutton ha sido seleccionado
+	var errorordenador=document.getElementById("errorordenador");
+var	ordenador = document.getElementsByName("ordenador");
+
+var seleccionado = false;
+for(var i=0; i<ordenador.length; i++) {
+  if(ordenador[i].checked) {
+    seleccionado = true;
+ errorordenador.hidden=true;
+    break;
+  }}
+  if(!seleccionado) {
+ errorordenador.hidden=false;
+}
+ 
+	var errorbuscador=document.getElementById("errorbuscador");
+var	buscador = document.getElementsByName("buscador");
+
+var seleccionado = false;
+for(var i=0; i<buscador.length; i++) {
+  if(buscador[i].checked) {
+    seleccionado = true;
+ errorbuscador.hidden=true;
+    break;
+  }}
+  if(!seleccionado) {
+ errorbuscador.hidden=false;
+}
+ 	mostrar();
+
+}
+function mostrar(){
+	var primer_apellido = document.getElementById("apellido1").value
+	document.getElementById("apellido1f").value=primer_apellido;
+
+	var apellido2 = document.getElementById("apellido2").value
+	document.getElementById("apellido2f").value=apellido2;
+
+	var nombre = document.getElementById("nombre").value
+	document.getElementById("nombref").value=nombre;
+
+	var edad = document.getElementById("edad").value
+	document.getElementById("edadf").value=edad;
+
+	var dni = document.getElementById("dni").value
+	document.getElementById("dnif").value=dni;
+
+	var email = document.getElementById("email").value
+	document.getElementById("emailf").value=email;
+
+	var cursos = document.getElementById("cursos").value
+	document.getElementById("cursosf").value=cursos;	
+
+ var provinciax = document.getElementById("provincia").selectedIndex;
+  var provinciay = document.getElementById("provincia").options;
+	
+	document.getElementById("provinciaf").value=provinciay[provinciax].text;	
+
+
+	opciones = document.getElementsByName("buscador");
+
+var seleccionado = false;
+for(var i=0; i<opciones.length; i++) {
+  if(opciones[i].checked) {
+    document.getElementById("buscadorf").value=opciones[i].value;
+    break;
+  }
+}
+
+
+
+
+
+	reopciones = document.getElementsByName("ordenador");
+
+for(var i=0; i<reopciones.length; i++) {
+  if(reopciones[i].checked) {
+    document.getElementById("ordenadorf").value=reopciones[i].value;
+    break;
+  }
+}
+
+
+var check_deportes=document.getElementById("deporte");
+
+ if(check_deportes.checked){
+ document.getElementById("preferenciasf").value=check_deportes.value;
+
+}
+var check_noticias=document.getElementById("noticia");
+
+ if(check_noticias.checked){
+ document.getElementById("preferenciasf").value=check_noticias.value;
+
+}
+var check_precios=document.getElementById("precio");
+
+ if(check_precios.checked){
+ document.getElementById("preferenciasf").value=check_precios.value;
+
+}
+
+
+
+}
+
+
+	</script>
+
+</head>
+<body>
+<form >
+	<hr>
+	<div id="personales">
+		Primer apellido:<input type="text" size="12" id="apellido1" placeholder="Primer apellido" />
+		<label id="errorapellido1" hidden="false">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Segundo apellido:<input type="text" size="12" id="apellido2" placeholder="Segundo apellido" />
+		<label id="errorapellido2" hidden="false">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Nombre:<input type="text" size="12" id="nombre" placeholder="Nombre" />
+		<label id="errornombre" hidden="false">Campo incompleto o incorrecto</label><br/><br/><br/>
+		DNI:<input type="text" size="9" id="dni" placeholder="DNI" />
+		<label id="errorDNI" hidden="false">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Edad:<input type="text" id="edad" placeholder="Edad" />
+		<label id="erroredad" hidden="false">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Email:<input type="text" size="12" id="email" placeholder="Email" />
+		<label id="erroremail" hidden="false">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Provincia:
+		<select id="provincia">
+			<option value=""></option>
+  			<option value="Toledo">Toledo</option>
+  			<option value="Ciudad Real">Ciudad Real</option>
+  			<option value="Cuenca">Cuenca</option>
+  			<option value="Albacete">Albacete</option>
+  			<option value="Guadalajara">Guadalajara</option>
+		</select>
+		<label id="errorprovincia" hidden="false">Seleciona un provincia</label><br/><br/>
+		Cursos realizados:<textarea id="cursos" rows="5" cols="100"></textarea>
+	</div>
+	<hr>
+	<div id="preferencias">
+		<div id="ordenador">
+			Mi ordenador es:<br/>
+			<input type="radio" name="ordenador" value="PC" >PC<br>
+			<input type="radio" name="ordenador" value="MAC">MAC<br>
+			<input type="radio" name="ordenador" value="Otro">OTRO<br>
+			<label id="errorordenador" hidden="false">Seleciona una opcion</label>
+		</div>
+		<div id="buscador">
+			Mi buscador es:<br/>
+			<input type="radio" name="buscador" value="Internet Explorer" >Internet Explorer<br>
+			<input type="radio" name="buscador" value="Mozilla">Mozilla<br>
+			<input type="radio" name="buscador" value="Google Chrome">Google Chrome<br>
+			<label id="errorbuscador"hidden="false">Seleciona una opcion</label>
+		</div>
+	</div>
+	<hr>
+	<div id="sugerencias">
+		Cuando me conecte quiero ver:</br>
+		<input type="checkbox" id="deporte" value="Deportes"/>Deportes
+		<input type="checkbox" id="noticia" value="Noticias"/>Noticias
+		<input type="checkbox" id="precio" value="Precios"/>Precios
+	</div>
+	<div id="regis" align="center">
+		<input type="button" id="registro" value="registrarse"/>
+	</div>
+	<hr><hr>
+	<div id="resultado">
+		1º Apellido<input type="text" value="" id="apellido1f"/><br/>
+		2º Apellido<input type="text" value="" id="apellido2f"/><br/>
+		Nombre<input type="text" value="" id="nombref"/><br/>
+		DNI<input type="text" value="" id="dnif"/><br/>
+		Edad<input type="text" value="" id="edadf"/><br/>
+		Email<input type="text" value="" id="emailf"/><br/>
+		Provincia<input type="text" value="" id="provinciaf"/><br/>
+		Cursos<input type="text" value="" id="cursosf"/><br/>
+		Ordenador<input type="text" value="" id="ordenadorf"/><br/>
+		Navegador<input type="text" value="" id="buscadorf"/><br/>
+		Preferencias<input type="text" value="" id="preferenciasf"/>
+	</div>
+</form>
+</body>
+</html>

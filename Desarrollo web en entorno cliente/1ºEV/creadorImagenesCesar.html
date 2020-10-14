@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    var tamano=75;
+    var tamanoV2=1.5;
+    var crearImagen=0;
+
+window.onload=function(){
+    document.getElementById("poner").onclick=crea;
+}
+
+function crea(){
+    alert("futo");
+  var seleccion =  prompt("cuantas imagenes quieres");
+  for(var i=0;i<seleccion;i++){
+      crearImagen++;
+   var imagenes=document.createElement("img");
+   imagenes.setAttribute("src","imagenes/tarro.jpg");
+   imagenes.setAttribute("width",tamano*tamanoV2+"px");
+   imagenes.setAttribute("height",tamano*tamanoV2+"px");
+   imagenes.setAttribute("id","imagenes"+crearImagen);
+   var division=document.getElementById("imagen");
+   division.appendChild(imagenes);
+   tamanoV2++;
+   document.getElementById("quitar").onclick=borrar;
+  }
+}
+
+function borrar(){
+    var seleccion =  prompt("cuantas imagenes quieres borrar");
+  for(var i=crearImagen;seleccion>0;seleccion--,i--){
+      var imagenes=document.getElementById("imagenes"+i);
+      var division=document.getElementById("imagen");
+   division.removeChild(imagenes)
+tamanoV2--;
+crearImagen--;
+
+}
+}
+
+
+
+
+
+
+</script>
+
+
+<body>
+    <form>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         <input type="button" value="poner" id="poner"></input>
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <input type="button" value="quitar" id="quitar"></input>
+        <div id="imagen">
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <img src="imagenes/tarro.jpg" width="75px" height="75px">
+        </div>
+    </form>
+</body>
+</html>

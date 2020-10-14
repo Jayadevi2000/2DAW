@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>3 en raya</title>
+<style>
+table {border-collapse:collapse; margin:0 auto;}
+td, tr {height:100px; width:100px; border: 2px solid black;}
+</style>
+<script language="JavaScript" type="text/javascript">
+
+    var tdtag = document.getElementsByTagName("td");
+    var registro = new Array(9); // aqui registraremos cada turno, la casilla 0 es la primera casilla y la ultima la 8
+    var posibleGanador;
+
+    var imagen;
+    var padre;
+
+    var turno = 1;
+
+    var gameOver = false;
+
+    window.onload = function(){
+        document.onclick = manejarEvento;
+
+        // if (turno==1) 
+        //    alert("Debe empezar en la casilla central");
+        //else
+    }
+
+    function manejarEvento(event){
+            var evento = event || window.event;
+            // alert(evento.clientX + " " + evento.clientY);
+
+            //primera fila
+            if(evento.clientX >= 615 && evento.clientX <= 715   &&  evento.clientY >= 10 && evento.clientY <= 110){
+                creaImagen("0");
+            }
+            if(evento.clientX >= 715 && evento.clientX <= 815   &&  evento.clientY >= 10 && evento.clientY <= 110){
+                creaImagen("1");
+            }
+            if(evento.clientX >= 815 && evento.clientX <= 915   &&  evento.clientY >= 10 && evento.clientY <= 110){
+                creaImagen("2");
+            }
+
+            //segunda fila
+            if(evento.clientX >= 615 && evento.clientX <= 715   &&  evento.clientY >= 110 && evento.clientY <= 210){
+                creaImagen("3");
+            }
+            if(evento.clientX >= 715 && evento.clientX <= 815   &&  evento.clientY >= 110 && evento.clientY <= 210){
+                creaImagen("4");
+            }
+            if(evento.clientX >= 815 && evento.clientX <= 915   &&  evento.clientY >= 110 && evento.clientY <= 210){
+                creaImagen("5");
+            }
+
+            //tercera fila
+            if(evento.clientX >= 615 && evento.clientX <= 715   &&  evento.clientY >= 210 && evento.clientY <= 310){
+                creaImagen("6");
+            }
+            if(evento.clientX >= 715 && evento.clientX <= 815   &&  evento.clientY >= 210 && evento.clientY <= 310){
+                creaImagen("7");
+            }
+            if(evento.clientX >= 815 && evento.clientX <= 915   &&  evento.clientY >= 210 && evento.clientY <= 310){
+                creaImagen("8");
+            }
+        }
+
+    function creaImagen(casilla){
+
+        if(registro[casilla] == null){ // si esta casilla esta vacía entonces podremos poner una figura
+
+            imagen = document.createElement("img");
+
+            if(turno%2 == 0){
+                imagen.src = "img/o.jpg";
+                registro[casilla] = "o";
+                posibleGanador = "Jugador 'O'";
+                // alert("Guardado en registro. Casilla " + casilla + " contiene " + registro[casilla]);
+            }else{
+                imagen.src = "img/x.jpg";
+                registro[casilla] = "x";
+                posibleGanador = "Jugador 'X'";
+                // alert("Guardado en registro. Casilla " + casilla + " contiene " + registro[casilla]);
+            }
+
+            imagen.width = "100"; //tam de la imagen
+            padre = document.getElementById(casilla); //el padre es el td que tiene como id casilla
+            padre.appendChild(imagen); // la imagen será hija de esta td
+
+            if(turno > 4)
+                comprobarGanador();
+            turno++;
+        }
+
+    }
+
+    function comprobarGanador(){
+        if(gameOver == false){
+
+            if(registro[0] == registro[1] && registro[1] == registro[2]) //primera fila
+                if(registro[0] != null){ //si todas las figuras son iguales y además no son figuras vacias
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la primera fila");
+                    gameOver = true;
+                }
+
+            if(registro[3] == registro[4] && registro[4] == registro[5]) //segunda fila
+                if(registro[3] != null){
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la segunda fila");
+                    gameOver = true;
+                }
+
+            if(registro[6] == registro[7] && registro[7] == registro[8]) //tercera fila
+                if(registro[6] != null){
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la tercera fila");
+                    gameOver = true;
+                }
+
+            if(registro[0] == registro[3] && registro[3] == registro[6]) //primera col
+                if(registro[0] != null){
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la primera col");
+                    gameOver = true;
+                }
+
+            if(registro[1] == registro[4] && registro[4] == registro[7]) //segunda col
+                if(registro[1] != null){
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la segunda col");
+                    gameOver = true;
+                }
+
+            if(registro[2] == registro[5] && registro[5] == registro[8]) //tercera col
+                if(registro[2] != null){
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la tercera col");
+                    gameOver = true;
+                }
+
+            if(registro[0] == registro[4] && registro[4] == registro[8]) //diag 1
+                if(registro[0] != null){
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la primera diagonal");
+                    gameOver = true;
+                }
+
+            if(registro[6] == registro[4] && registro[4] == registro[2]) //diag 2
+                if(registro[6] != null){
+                    alert("Gana el " + posibleGanador + " con un 3 en raya en la segunda diagonal");
+                    gameOver = true;
+                }
+        
+        }
+    }
+
+</script>
+
+<body>
+
+<table>
+    <tr>
+        <td id="0"></td>
+        <td id="1"></td>
+        <td id="2"></td>
+    </tr>
+    <tr>
+        <td id="3"></td>
+        <td id="4"></td>
+        <td id="5"></td>
+    </tr>
+    <tr>
+        <td id="6"></td>
+        <td id="7"></td>
+        <td id="8"></td>
+    </tr>
+</table>
+
+<p><a href="">Reiniciar</a></p>
+</body>
+</html>

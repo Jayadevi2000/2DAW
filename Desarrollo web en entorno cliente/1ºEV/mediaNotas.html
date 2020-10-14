@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<script>
+
+    
+    window.onload = function () {   
+     
+
+        var btnprom = document.getElementById("prom");
+        btnprom.onclick = calcular;
+		//document.getElementById("prom").onclick=calcular;
+
+    }
+
+
+
+    function calcular() {
+	var numeros=document.getElementsByName("numero");
+	       
+        this.value="calculando";
+        var media = 0;        
+		
+        
+		for (var i=0; i<numeros.length;i++){
+		media+=parseInt(numeros[i].value);
+		}
+		media=media/parseInt(numeros.length);
+        alert("La media es " + media);
+
+       
+        
+        var proximo = Math.abs(numeros[0].value - media);
+        var nota = numeros[0].value;
+
+        var aux = 0;
+        
+        for (var i = 0; i < numeros.length ; i++) {
+            aux = Math.abs(numeros[i].value - media);
+            if (proximo > aux) {
+                proximo = Math.abs(numeros[i].value - media);
+                nota   = numeros[i].value;
+            }
+
+        }
+
+        alert("La nota más próxima a la media es "+nota);
+		this.value="FIN";
+
+    }
+
+   
+
+
+
+</script>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        Introduce 5 numeros:<br />
+&nbsp;<input id="num1" type="text" name ="numero" />
+       <input id="num2" type="text" name="numero" />
+        <input id="num3" type="text"name ="numero" />
+        <input id="num4" type="text" name ="numero"/>
+        <input id="num5" type="text" name ="numero"/><br />
+&nbsp;<input id="prom" type="button" value="CALCULAR" /></div>
+    </form>
+</body>
+</html>

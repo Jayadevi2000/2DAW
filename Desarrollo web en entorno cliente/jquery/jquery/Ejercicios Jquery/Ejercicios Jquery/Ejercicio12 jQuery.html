@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Ejercicio12</title>
+<link rel="StyleSheet" href="estilos15.css" type="text/css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" >
+
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$("p");
+  x.mousedown(function(event){
+  if(event.which == 1)
+    alert(" Hizo clic con el boton izquierdo");
+    
+
+    });
+};
+  
+</script>
+</head>
+<body>
+
+<p>Haz clic aquí</p>
+
+</body>
+</html>

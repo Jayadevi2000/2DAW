@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 2</title>
+	<meta charset="utf-8">
+	<script>
+		var num = [];
+		var media = 0;
+		var cantidad = 5;
+		var diferencia = 0;
+		var menor_dif = 9999;
+		var numeroMasCercano;
+
+		for(var i = 0; i < cantidad; i++){
+			num[i] = prompt("Introduce un numero");
+			media = parseInt(num[i]) + media;
+		}
+
+		media = media/cantidad;
+		alert("La media es " + media);
+
+		for(var j = 0; j < cantidad; j++){
+
+			diferencia = media - num[j];
+			diferencia = Math.abs(diferencia);
+
+			if(diferencia < menor_dif){
+				menor_dif = diferencia;
+				numeroMasCercano = num[j];
+			}
+
+		}
+
+		alert("El numero mas cercano es " + numeroMasCercano);
+
+		if(numeroMasCercano > media){
+			alert("y esta por encima de media");
+		}else if(numeroMasCercano < media){
+			alert("y esta por debajo de media");
+		}else{
+			alert("y es igual a la media")
+		}
+
+	</script>
+</head>
+<body>
+	Leer 5 números, obtener su media y determinar cuál es el más cercano a la media. Si hay más de uno cercano porque se acerca por arriba o por abajo, ponerlo también.
+</body>
+</html>

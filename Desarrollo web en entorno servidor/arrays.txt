@@ -1,0 +1,8 @@
+<%
+	String [] hoteles = {"Ritz","EuroStars","AC","Barceló","NH"};
+	Integer [] RegimenA  = {100,120,140,200,300};
+	Integer [] RegimenAD  = {110,140,175,250,350};
+	Integer [] Parking  = {15,15,20,25,30};
+	Integer [] Jacuzzi  = {10,15,20,25,40};
+	Integer [] Gym  = {10,15,20,30,50};
+%>

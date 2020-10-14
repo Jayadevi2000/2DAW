@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Ejercicio3</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  $("#boton1").click(presionBoton);
+}
+
+function presionBoton()
+{
+$("p.intro").hide();
+  alert("Se ocultará el párrafo");
+}
+
+</script>
+</head>
+<body>
+    <h1 class="intro">Encabezado</h1>
+    <p class="intro">Parrafo1</p> 
+    <p>Parrafo2</p>
+<input type="button" id="boton1" value="presioname">
+</body>
+</html>

@@ -1,0 +1,32 @@
+2.-
+ 1.B
+ 2.D
+ 3.B
+
+3.-
+1.router
+2.network
+3.internet
+4.wlan
+5.configuration
+6.cat-5 cable
+7.cycle
+8.DHCP
+
+4.-
+1-C
+2-B
+3-A
+
+5.-Renewing your DHCP.
+
+6.-
+1-C
+2-B
+
+7.-
+1.router
+2.network
+3.support
+4.connects computers
+5.apart

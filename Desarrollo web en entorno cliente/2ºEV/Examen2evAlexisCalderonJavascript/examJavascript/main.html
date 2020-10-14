@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>vehiculos</title>
+<script type="text/javascript"  src="ClaseCoche.js"></script>
+<script type="text/javascript"  src="scriptCoche.js"></script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Vehiculos</legend>
+                
+            <p> Titular <input type="text" id="titular"></p>
+            Tipo:<br/>
+            <input type="radio" name="tipo" value="moto">moto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Color:<input type="text" id="color"><br/>
+            <input type="radio" name="tipo" value="coche">coche &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Marca:<input type="text" id="marca"><br/>
+            <input type="radio" name="tipo" value="camion">camion &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Año Matriculacion:<input type="text" id="aniom"><br/>
+
+        <input type="button" id="alta" value="ALTA" /> &nbsp;&nbsp;
+        <input type="button" id="baja" value="BAJA" /> &nbsp;&nbsp;
+        <input type="button" id="siguiente" value=">" />
+        <br/>
+        <br/>
+        <input type="button" id="calSeguro" value="Calcular Seguro" /> &nbsp;
+        <input type="text" id="precioSeguro"/>&nbsp;
+        <br/>
+        <br/>
+        Forma de pago:<br/>
+        <input type="radio" name="tipoSeguro" value="mensual">MENSUAL<br/>
+        <input type="radio" name="tipoSeguro" value="semestral">SEMESTRAL<br/>
+        <input type="radio" name="tipoSeguro" value="anual">ANUAL<br/>
+        CUOTA: <input type="text" id="couta"/>&nbsp;
+        <br/>
+        <br/>
+        <input type="button" id="estadistica" value="ESTADISTICA" />
+        <input type="button" id="bajasList" value="LISTADO DE BAJAS" /> &nbsp;
+
+    </fieldset>
+    <fieldset id="estadisticaField">
+                <legend>Estadistica</legend>
+    </fieldset>
+
+    <fieldset id="bajasField">
+        <legend>Listado de Bajas</legend>
+    </fieldset>
+        
+        </body>
+        
+        </html>

@@ -1,0 +1,38 @@
+Unidad 1
+
+2.-
+	1.C
+	2.A
+	3.B
+
+3.-
+	1.C
+	2.F
+	3.B
+	4.G
+	5.D
+	6.A
+	7.E
+
+4.-
+	1.bit size
+	2.bus speed
+	3.hard drive
+	4.MB
+	5.RAM
+
+5.- Resolve the problem of limited memory  x-->(Está mal)
+
+6.-
+	1.F
+	2.F
+	3.T
+	
+7.-
+	1.there's your problem
+	2.VIRTUAL MEMORY
+	3.HARD DRIVE
+	4.HOW exactly
+	5.JUST CLICK
+	6.by at list 
+	

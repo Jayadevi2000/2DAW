@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<script>
+    window.onload = function(){
+        document.getElementById("añadir").onclick=añadir;
+      
+      document.getElementById("borrar_todos").onclick = borrar;
+
+    }
+
+    function añadir(){
+        var parrafo = document.createElement("p");
+        var contenido = document.createTextNode("division$");
+        parrafo.appendChild(contenido);
+        document.getElementById("division").appendChild(parrafo);
+        parrafo.id="parrafo";
+
+        var texto=document.createElement("input");
+        var contenido2=document.createTextNode("parrafo$ de la division$");
+        texto.appendChild(contenido2);
+        texto.id="texto1";
+        document.getElementById("division").appendChild(texto);
+
+        var boton2=document.createElement("input");
+        boton2.type="button";
+        boton2.value="borrar";
+        boton2.onclick=borrar;
+ 	    parrafo.parentNode.removeChild(parrafo);
+
+
+    }
+   function borrar{
+ 	    	parrafo.parentNode.removeChild(division);
+   	
+   }
+
+</script>
+<body>
+    <div id="division">
+        <input type="button" id="añadir" value="añadir div"/>
+        <input type="button" name="borrar todas" value="borrar todas" id="borrar_todos">
+    </div>
+ 
+</body>
+</html>

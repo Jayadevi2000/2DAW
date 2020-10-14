@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Ejercicio9</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  $("#boton1").click(ocultarBoton);
+}
+
+function ocultarBoton()
+{
+$("#boton1").hide();
+  alert("Se ocultará el botón");
+}
+
+</script>
+</head>
+<body>
+<input type="button" id="boton1" value="ocultar">
+</body>
+</html>

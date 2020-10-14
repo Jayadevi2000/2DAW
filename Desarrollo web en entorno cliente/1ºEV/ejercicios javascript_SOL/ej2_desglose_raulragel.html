@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 2</title>
+	<meta charset="utf-8">
+	<script>
+		
+		var tipoBillete = [500,200,100,50,20,10,5,2,1];
+		var importe = prompt("Introduce el importe");
+		var nBilletes = 0;
+
+		var BillOrCoin;
+
+		alert("El importe es " + importe + "€");	//512
+
+		for(var i = 0; i < tipoBillete.length; i++){
+			
+			nBilletes = importe / tipoBillete[i];		//= 512/500, nBilletes = 1.002
+			nBilletes = Math.trunc(nBilletes);			//nBilletes = 1
+														//... y actualizamos el importe
+			importe = importe % tipoBillete[i];			//512%500 = 12
+
+			if(i < 7){
+				BillOrCoin = " billete/s";
+			}else{
+				BillOrCoin = " moneda/s";
+			}
+
+			if(nBilletes != 0){
+				alert(nBilletes + BillOrCoin + " de " + tipoBillete[i]);
+			}
+
+			
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

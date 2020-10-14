@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejercicio6</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		window.onload=function(){
+			var botones=document.getElementsByName('botones');
+			for (var i=0;i<botones.length;i++){
+		botones[i].onclick=muestraCaja;
+	}			alert('hola1')
+			var selectB=document.getElementsByName('listBotones');
+			selectB.onchange=muestraImagen;
+		}
+		function muestraCaja(){alert("hola2");
+			alert("has clickeado el botón "+this.id);
+var botones=document.getElementsByName('botones');
+		
+			document.getElementById('nombreB').value=this.value;alert("hola3");
+						alert("hola4");
+				for (var i=0;i<botones.length;i++){
+			var selectB=document.getElementsByName('listBotones');
+			var opcionB=document.createElement('option');
+			var contenido=document.createTextNode(this.value);
+			opcionB.appendChild(contenido);
+			selectB.appendChild(opcionB);}
+		}
+		function muestraImagen(){
+					var logo=opcionB.text;
+		imagenTipo.src="imgBotones/"+logo+".jpg";
+			
+		}
+	</script>
+</head>
+<body>
+<input type="button" name="botones" value="boton 1" id="1">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" id="nombreB">
+<br><br>
+
+
+<input type="button" name="botones" value="boton 2" id="2">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select name="listBotones">
+	
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img id="imagenTipo" src="" >
+<br><br>
+
+
+<input type="button" name="botones" value="boton 3" id="3"><br><br>
+
+<input type="button" name="botones" value="boton 4" id="4"><br><br>
+
+<input type="button" name="botones" value="boton 5" id="5"><br><br>
+
+<input type="button" name="botones" value="boton 6" id="6"><br><br>
+
+
+</body>
+</html>

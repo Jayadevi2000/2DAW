@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario</title>
+	<script type="text/javascript" src="funcionesValidacion.js"></script>
+	<script type="text/javascript">
+		
+		window.onload = function() 
+		{
+			apellido1.focus();
+			registro.onclick=permitir;
+			ocultar();
+		}
+
+		function ocultar()
+		{
+			errorapellido1.style.visibility="hidden";
+			errorapellido2.style.visibility="hidden";
+			errornombre.style.visibility="hidden";
+			errorDNI.style.visibility="hidden";
+			erroredad.style.visibility="hidden";
+			erroremail.style.visibility="hidden";
+			errorprovincia.style.visibility="hidden";
+			errorordenador.style.visibility="hidden";
+			errorbuscador.style.visibility="hidden";
+		}
+
+		function validacion()
+		{
+			ocultar();
+			var check=true;
+			if(!comprobarNombre(apellido1.value))
+			{
+				errorapellido1.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarNombre(apellido2.value))
+			{
+				errorapellido2.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarNombre(nombre.value))
+			{
+				errornombre.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarEmail(email.value))
+			{
+				erroremail.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarDNI(dni.value))
+			{
+				errorDNI.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarEdad(edad.value))
+			{
+				erroredad.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarSelect(provincia.selectedIndex))
+			{
+				errorprovincias.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarTextarea(cursos.value))
+			{
+				check=false;
+			}
+			if(!comprobarRadio(document.getElementsByName("ordenador")))
+			{
+				errorordenador.style.visibility="visible";
+				check=false;
+			}
+			if(!comprobarRadio(document.getElementsByName("buscador")))
+			{
+				errorbuscador.style.visibility="visible";
+				check=false;
+			}
+
+			if(check == false)
+				return false;
+			else
+				return true;
+		}
+
+		function poner()
+		{
+			apellido1f.value=apellido1.value;
+			apellido2f.value=apellido2.value;
+			nombref.value=nombre.value;
+			dnif.value=dni.value;
+			edadf.value=edad.value;
+			emailf.value=email.value;
+			provinciaf.value=provincia.options[provincia.selectedIndex].text;
+			cursosf.value=cursos.value;
+			var elementos = document.getElementsByName("ordenador");
+			for(var i=0; i<elementos.length; i++) {
+				if (elementos[i].checked){
+					ordenadorf.value=elementos[i].value;
+				}
+			}
+			elementos = document.getElementsByName("buscador");
+			for(var i=0; i<elementos.length; i++) {
+				if (elementos[i].checked){
+					buscadorf.value=elementos[i].value;
+				}
+			}
+			preferenciasf.value="";
+			if(deporte.checked)
+			{
+				preferenciasf.value=preferenciasf.value+deporte.value+",";
+			}
+			if(noticia.checked)
+			{
+				preferenciasf.value=preferenciasf.value+noticia.value+",";
+			}
+			if(precio.checked)
+			{
+				preferenciasf.value=preferenciasf.value+precio.value;
+			}
+		}
+
+		function permitir()
+		{
+			if(validacion()==false)
+			{
+				alert("Complete los campos correctamente")
+			}
+			else
+			{
+				ocultar();
+				poner();
+			}
+		}	
+
+	</script>
+</head>
+<body>
+<form >
+	<hr>
+	<div id="personales">
+		Primer apellido:<input type="text" size="12" id="apellido1" placeholder="Primer apellido" />
+		<label id="errorapellido1">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Segundo apellido:<input type="text" size="12" id="apellido2" placeholder="Segundo apellido" />
+		<label id="errorapellido2">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Nombre:<input type="text" size="12" id="nombre" placeholder="Nombre" />
+		<label id="errornombre">Campo incompleto o incorrecto</label><br/><br/><br/>
+		DNI:<input type="text" size="9" id="dni" placeholder="DNI" />
+		<label id="errorDNI">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Edad:<input type="text" id="edad" placeholder="Edad" />
+		<label id="erroredad">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Email:<input type="text" size="12" id="email" placeholder="Email" />
+		<label id="erroremail">Campo incompleto o incorrecto</label><br/><br/><br/>
+		Provincia:
+		<select id="provincia" >
+			<option value=""></option>
+  			<option value="Toledo">Toledo</option>
+  			<option value="Ciudad Real">Ciudad Real</option>
+  			<option value="Cuenca">Cuenca</option>
+  			<option value="Albacete">Albacete</option>
+  			<option value="Guadalajara">Guadalajara</option>
+		</select>
+		<label id="errorprovincia">Seleciona un provincia</label><br/><br/>
+		Cursos realizados:<textarea id="cursos" rows="5" cols="100"></textarea>
+	</div>
+	<hr>
+	<div id="preferencias">
+		<div id="ordenador">
+			Mi ordenador es:<br/>
+			<input type="radio" name="ordenador" value="PC" >PC<br>
+			<input type="radio" name="ordenador" value="MAC">MAC<br>
+			<input type="radio" name="ordenador" value="Otro">OTRO<br>
+			<label id="errorordenador">Seleciona una opcion</label>
+		</div>
+		<div id="buscador">
+			Mi buscador es:<br/>
+			<input type="radio" name="buscador" value="Internet Explorer" >Internet Explorer<br>
+			<input type="radio" name="buscador" value="Mozilla">Mozilla<br>
+			<input type="radio" name="buscador" value="Google Chrome">Google Chrome<br>
+			<label id="errorbuscador">Seleciona una opcion</label>
+		</div>
+	</div>
+	<hr>
+	<div id="sugerencias">
+		Cuando me conecte quiero ver:</br>
+		<input type="checkbox" id="deporte" value="Deportes"/>Deportes
+		<input type="checkbox" id="noticia" value="Noticias"/>Noticias
+		<input type="checkbox" id="precio" value="Precios"/>Precios
+	</div>
+	<div id="regis" align="center">
+		<input type="button" id="registro" value="registrarse"/>
+	</div>
+	<hr><hr>
+	<div id="resultado">
+		1º Apellido<input type="text" value="" id="apellido1f"/><br/>
+		2º Apellido<input type="text" value="" id="apellido2f"/><br/>
+		Nombre<input type="text" value="" id="nombref"/><br/>
+		DNI<input type="text" value="" id="dnif"/><br/>
+		Edad<input type="text" value="" id="edadf"/><br/>
+		Email<input type="text" value="" id="emailf"/><br/>
+		Provincia<input type="text" value="" id="provinciaf"/><br/>
+		Cursos<input type="text" value="" id="cursosf"/><br/>
+		Ordenador<input type="text" value="" id="ordenadorf"/><br/>
+		Navegador<input type="text" value="" id="buscadorf"/><br/>
+		Preferencias<input type="text" value="" id="preferenciasf"/>
+	</div>
+</form>
+</body>
+</html>

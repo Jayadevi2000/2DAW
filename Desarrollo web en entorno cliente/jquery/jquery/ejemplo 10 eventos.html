@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" ">
+/*confeccionaremos una página que muestre un párrafo, 
+luego una tabla que contenga dos párrafos y por último otra tabla que contenga dos párrafos. 
+Capturaremos el evento click de todos los párrafos del documento y mostraremos un mensaje indicando:
+'se presionó un párrafo del documento', también capturaremos el evento click de los dos párrafos de la segunda tabla y mostraremos: 
+'se presionó un párrafo contenido en la segunda tabla.'.*/
+
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$("p");
+  x.click(presionParrafoDocumento);
+  x=$("#tabla2 p");
+  x.click(presionpresionParrafoSegundaTabla);
+}
+
+function presionParrafoDocumento()
+{
+  alert('se presionó un párrafo del documento');
+}
+
+function presionpresionParrafoSegundaTabla()
+{
+  alert('se presionó un párrafo contenido en la segunda tabla.');
+}
+</script>
+</head>
+<body>
+<p>Párrafo fuera de la tabla</p>
+<table border="1">
+<tr>
+<td><p>Párrafo dentro de la primer tabla.</p></td><td><p>Párrafo 
+dentro de la primer tabla.</p></td>
+</tr>
+</table>
+<br>
+<table border="1" id="tabla2">
+<tr>
+<td><p>Párrafo dentro de la segunda tabla.</p></td><td><p>Párrafo 
+dentro de la segunda tabla.</p></td>
+</tr>
+</table>
+</body>
+</html> 
+

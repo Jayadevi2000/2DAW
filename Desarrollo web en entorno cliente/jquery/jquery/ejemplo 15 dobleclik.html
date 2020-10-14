@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Problema</title>
+<link rel="StyleSheet" href="estilos15.css" type="text/css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" >
+/*crearemos un div en una coordenada absoluta y lo ocultaremos al hacer doble clic en su interior. */
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$("#recuadro");
+  x.dblclick(dobleClic);
+}
+
+function dobleClic()
+{
+  var x;
+  x=$(this);
+  x.hide()
+}
+</script>
+</head>
+<body>
+<div id="recuadro">
+<h1>Doble clic para ocultar este recuadro</h1>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notas</title>
+    <script src="Notas.js"></script>
+    <script src="jsNotas.js"></script>
+</head>
+<body >
+    <h1>Introducir Notas</h1>
+
+    <div>
+        <p>ID_MODULO</p>
+        <select id="modulos">
+            <option hidden selected>-- selecciona una opcion --</option>
+            <option id="DWS">DWS</option>
+            <option id="DIW">DIW</option>
+            <option id="DWC">DWC</option>
+            <option id="DAW">DAW</option>
+        </select>
+    </div>
+
+    <div>
+        <p>NOMBRE ALUMNO:</p>
+        <input type="text" id="nombre">
+
+        <p>EVALUACIÓN:</p>
+        <div>
+            1º<input type="radio" name="evaluacion" value="1º" checked="checked">
+            &nbsp;&nbsp;
+            2º<input type="radio" name="evaluacion" value="2º">
+        </div>
+    </div>
+
+    <div>
+        <p>NOTA:</p>
+        <input type="number" id="nota" min="0" max="10" step=0.1>
+    </div>
+
+    <br>
+
+    <div>
+        <input type="button" id="guardar" value="GUARDAR">
+        <input type="button" id="lista" value="LISTADO NOTAS">
+    </div>
+
+    <br>
+
+    <div>
+        
+        <div id="listado" style="display:inline-block;" >
+                
+        </div>
+        
+        &nbsp;&nbsp;
+
+        <div id="porcentajes" style="display:inline-block; position:absolute;">
+                
+        </div>
+        
+    </div>
+    
+</body>
+</html>

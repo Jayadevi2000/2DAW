@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<script>
+    window.onload = function(){
+        document.getElementById("boton").onclick=boton;
+    }
+
+    function boton(){
+        var parrafo = document.createElement("p");
+        var contenido = document.createTextNode("Hola Mundo!");
+        parrafo.appendChild(contenido);
+        document.getElementById("division").appendChild(parrafo);
+        parrafo.id="parrafo";
+
+        var texto=document.createElement("input");
+        var contenido2=document.createTextNode("hola");
+        texto.appendChild(contenido2);
+        texto.id="texto1";
+        document.getElementById("division").appendChild(texto);
+
+        var boton2=document.createElement("input");
+        boton2.type="button";
+        boton2.value="ejecutar";
+        boton2.onclick=ejecutar;
+        document.getElementById("division").appendChild(boton2);
+    }
+    function ejecutar(){
+    	alert(document.getElementById("texto1").value);
+    	parrafo.parentNode.removeChild(parrafo);
+    }
+
+</script>
+<body>
+    <div id="division">
+        <input type="button" id="boton" value="pulsa"/>
+    </div>
+ 
+</body>
+</html>

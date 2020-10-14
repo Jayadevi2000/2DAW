@@ -1,0 +1,72 @@
+WINDOWS
+<VirtualHost *:80>
+ServerName empresa.com
+ServerAdmin empresa@asir253.com
+DocumentRoot C:/Apache2/htdocs
+<Directory  "C:/Apache2/htdocs">
+Options Indexes (permite que se visualice el directorio)
+AllowOverride None (prohibe que se configure debido al none)
+...
+</Directory>
+ErrorDocument 403 "Acceso denegado"
+ErrorDocument 404 /404.html
+
+ErrorLevel warn
+ErrorLog /var/log/apache2/empresa.error.log
+CustomLog ...../empresa.acces.log
+</VirtualHost>
+
+Fichero de configuración general 
+ C:/Apache2/conf/httpd.conf
+
+Ficehro de configuración de sitios virtuales
+ C:/Apache2/extra/httpd-vhosts.conf
+
+C:/Windows/System32/drivers/etc/hosts
+LINUX
+
+1/ CREAR SITIO VIRTUAL (sitio1)
+sudo mkdir /var/www/html/sitio1
+
+1.2/ CREAR CONTENIDO
+sudo nano /var/www/html/sitio1/index.html
+
+2/ CONFIGURAR SITIO VIRTUAL (sitio1)
+sudo nano /etc/apache2/sites-available/sitio1.conf
+
+<VirtualHost *:80>
+ServerName sitio1
+ServerAdmin sitio1@asir253.net
+ServerAlias www.sitio1
+DocumentRoot /var/www/html/sitio1
+
+<Directory /var/www/html/sitio1>
+Options Indexes 
+AllowOverride None
+Require all granted
+</Directory>
+
+</VirtualHost>
+
+sudo a2dissite 000-default.conf
+sudo a2ensite sitio1.conf
+sudo service apache2 restart
+
+AuthType Basic/Digest
+AuthName "mensaje"(si es basic , si es digest tienes que poner el nombre de usuario sin el entrecomillado)
+AuthUserFile rutaFicherodeContraseñas
+Require user usuario 
+
+Para crear las contraseñas
+en basic:
+htpasswd -c nombrefich usuario
+htdigest -c nombrefich nombredeusuario usuario
+
+fichero .htacces
+para poner la configuración en un directorio en vez de ponerlo en el fichero de configuración general .
+
+sudo nano /var/www/html/sitio1/.htaccess
+Options -Indexes
+DirectoryIndex sitio1.html
+Require all granted
+

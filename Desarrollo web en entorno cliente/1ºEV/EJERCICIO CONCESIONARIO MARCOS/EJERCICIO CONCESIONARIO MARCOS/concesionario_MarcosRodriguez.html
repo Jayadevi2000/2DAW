@@ -1,0 +1,375 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Concesionario</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 2px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        td,
+        tr {
+            width: 200px;
+            height: 150px;
+        }
+
+        div {
+            text-align: left;
+        }
+
+
+        .grow img {
+            transition: 1s ease;
+        }
+
+        .grow img:hover {
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+            transition: 1s ease;
+        }
+    </style>
+
+   
+
+<body>
+    <form>
+        <table align="center">
+            <tr>
+                <td> <label>Marca:</label><br /> <select id="marca">
+                        <option>Peugeot</option>
+                        <option>Citroen</option>
+                        <option>Nissan</option>
+                    </select> </td>
+                <td> <label>Extras:</label><br />
+                    <div> <input type="radio" name="extras" id="con" value="con">Con Extras <br /> <input type="radio"
+                            name="extras" id="sin" value="sin" checked>Sin Extras </div>
+                </td>
+                <td rowspan="2">
+                    <div class="grow"><img id="imagenMarca" src="" height="200"></div>
+                </td>
+            </tr>
+            <tr>
+                <td> <label>Tipo:</label><br /> <select id="tipo"> </select> </td>
+                <td> <label>Color:</label><br />
+                    <div> <input type="radio" name="color" id="color" value="rojo" checked>Rojo <br />
+                        <input type="radio" name="color" id="color" value="azul">Azul <br />
+                        <input type="radio" name="color" id="color" value="verde">Verde <br />
+                        <input type="radio" name="color" id="color" value="blanco">Blanco <br />
+                        <input type="radio" name="color" id="color" value="negro">Gris </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="grow"><img id="imagenTipo" src="" height="200"></div>
+                </td>
+                <td id="celda">
+                    <h1>Precio</h1>
+                    <h2><label id="label"></label> €</h2>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script language="JavaScript" type="text/javascript">
+
+    var precioActual = 0; //para llevar la cuenta del precio durante el ejercicio
+    var precioActual2 = 0; //para que cada vez que elija color pueda volver al precio que habia antes de elegir color
+    var marcas = ["Peugeot", "Citroen", "Nissan"];
+    var Peugeot = ["4008", "508"];
+    var PeugeotFotos = ["Imagenes/peugeot0.jpg", "Imagenes/peugeot1.jpg"];
+    var PeugeotPrecios = [17000, 19000];
+    var Citroen = ["c5", "picasso"];
+    var CitroenFotos = ["Imagenes/citroen0.jpg", "Imagenes/citroen1.jpg"];
+    var CitroenPrecios = [18500, 20500];
+    var Nissan = ["qashqai", "xtrail"];
+    var NissanFotos = ["Imagenes/nissan0.jpg", "Imagenes/nissan1.jpg"];
+    var NissanPrecios = [16000, 18750];
+
+    window.onload = function () {
+        //SELECCIONAR MARCA
+        var marcaSelec = document.getElementById("marca");
+        marcaSelec.onchange = marcaClic;
+        //SELECCIONAR TIPO
+        var tipoSelec = document.getElementById("tipo");
+        tipoSelec.onchange = tipoClic;
+        //SELECCIONAR EXTRA
+        var extraSelec = document.getElementsByName("extras");
+        for (var i = 0; i < extraSelec.length; i++) {
+            extraSelec[i].disabled = true; //lo desactivo para que hasta que no elijas un tipo de coche no le puedas añadir extra
+            extraSelec[i].onchange = extraClic;
+        }
+        //SELECCIONAR COLOR
+        var colorSelec = document.getElementsByName("color");
+        for (var i = 0; i < colorSelec.length; i++) {
+            colorSelec[i].disabled = true; //lo desactivo para que hasta que no elijas un tipo de coche no le puedas añadir color
+            colorSelec[i].onchange = colorClic;
+        }
+    }
+
+    //SE EJECUTA AL HACER CLIC EN LA MARCA
+    function marcaClic() {
+
+        var selectTipo = document.getElementById("tipo");
+        borraElementos("tipos");
+        borraElementos("precios");
+        borraElementos("extras");
+
+        //LA MARCA DE COCHE SELECCIONADA
+        switch (this.value) {
+            //AÑADO ELEMENTO OPTION TANTAS VECES COMO MODELOS TENGA
+            case marcas[0]:
+                for (var i = 0; i < Peugeot.length; i++) {
+                    var opcion = document.createElement("option");
+                    var contenido = document.createTextNode(Peugeot[i]);
+                    opcion.appendChild(contenido);
+                    selectTipo.appendChild(opcion);
+                    //AÑADO CLASE AL ELEMENTO OPCION PARA LUEGO CUANDO QUIERA BORRARLO PODER BUSCARLO POR SU CLASE
+                    //YA QUE SI LO BUSCO POR TAGNAME OPCION ME SELECCIONA TAMBIEN LAS OPCIONES DE MARCAS
+                    opcion.setAttribute("class", "opcion");
+                    muestraFotoMarca(PeugeotFotos);
+                    muestraPrecio(marcas[0], Peugeot[0]);
+                }
+                break;
+
+            case marcas[1]:
+                for (var i = 0; i < Citroen.length; i++) {
+                    var opcion = document.createElement("option");
+                    var contenido = document.createTextNode(Citroen[i]);
+                    opcion.appendChild(contenido);
+                    selectTipo.appendChild(opcion);
+                    opcion.setAttribute("class", "opcion");
+                    muestraFotoMarca(CitroenFotos);
+                    muestraPrecio(marcas[1], Citroen[0]);
+                }
+                break;
+
+            //AÑADO ELEMENTO OPTION TANTAS VECES COMO MODELOS TENGA
+            case marcas[2]:
+                for (var i = 0; i < Nissan.length; i++) {
+                    var opcion = document.createElement("option");
+                    var contenido = document.createTextNode(Nissan[i]);
+                    opcion.appendChild(contenido);
+                    selectTipo.appendChild(opcion);
+                    opcion.setAttribute("class", "opcion");
+                    muestraFotoMarca(NissanFotos);
+                    muestraPrecio(marcas[2], Nissan[0]);
+                }
+                break;
+
+        }
+    }
+
+    //SE EJECUTA AL HACER CLIC EN LOS TIPOS
+    function tipoClic() {
+        var selectMarca = document.getElementById("marca");
+        var selectTipo = document.getElementById("tipo");
+        var extra = document.getElementsByName("extras");
+        var colorSelec = document.getElementsByName("color");
+        borraElementos("precios");
+        borraElementos("imagenTipo");
+        borraElementos("extras");
+
+        //HABILITO AÑADIR EXTRAS
+        for (var i = 0; i < extra.length; i++) {
+            extra[i].disabled = false;
+        }
+
+        //HABILITO AÑADIR COLORES
+
+        for (var i = 0; i < colorSelec.length; i++) {
+            colorSelec[i].disabled = false;
+        }
+
+        switch (selectMarca.value) {
+            case marcas[0]:
+                if (selectTipo.value == Peugeot[0]) {
+                    muestraFotoTipo(PeugeotFotos, 0);
+                    muestraPrecio(marcas[0], Peugeot[0]);
+                } else {
+                    muestraFotoTipo(PeugeotFotos, 1);
+                    muestraPrecio(marcas[0], Peugeot[1]);
+                }
+                break;
+
+            case marcas[1]:
+                if (selectTipo.value == Citroen[0]) {
+                    muestraFotoTipo(CitroenFotos, 0);
+                    muestraPrecio(marcas[1], Citroen[0]);
+                } else {
+                    muestraFotoTipo(CitroenFotos, 1);
+                    muestraPrecio(marcas[1], Citroen[1]);
+                }
+                break;
+
+            case marcas[2]:
+                if (selectTipo.value == Nissan[0]) {
+                    muestraFotoTipo(NissanFotos, 0);
+                    muestraPrecio(marcas[2], Nissan[0]);
+                } else {
+                    muestraFotoTipo(NissanFotos, 1);
+                    muestraPrecio(marcas[2], Nissan[1]);
+                }
+                break;
+
+        }
+    }
+
+    //SE EJECUTA AL HACER CLIC EN LOS EXTRA
+    function extraClic() {
+        var sin = document.getElementById("sin");
+        var con = document.getElementById("con");
+        var selectPrecio = document.getElementById("label");
+
+        if (con.checked == true) {
+            precioActual += 2500;
+            precioActual2 = precioActual;
+            selectPrecio.textContent = precioActual;
+        } else {
+            precioActual -= 2500;
+            selectPrecio.textContent = precioActual;
+            precioActual2 = precioActual;
+        }
+
+    }
+
+    //SE EJECUTA AL HACER CLIC EN EL COLOR
+    function colorClic() {
+        precioActual = precioActual2;
+        var color = document.getElementsByName("color");
+        var selectPrecio = document.getElementById("label");
+        for (var i = 0; i < color.length; i++) {
+            if (color[i].checked == true) {
+                switch (color[i].value) {
+                    case "rojo":
+                        precioActual += 0;
+                        document.body.style.backgroundColor = "firebrick";
+                        break;
+                    case "azul":
+                        precioActual += 50;
+                        document.body.style.backgroundColor = "lightblue";
+                        break;
+                    case "verde":
+                        precioActual += 50;
+                        document.body.style.backgroundColor = "lightgreen";
+                        break;
+                    case "blanco":
+                        precioActual += 50;
+                        document.body.style.backgroundColor = "white";
+                        break;
+                    case "negro":
+                        precioActual += 150;
+                        document.body.style.backgroundColor = "dimgrey";
+                        break;
+                }
+            }
+        }
+        selectPrecio.textContent = precioActual; //muestra por pantalla el precio actualizado con color
+    }
+
+    //FUNCION PARA MOSTRAR LA FOTO DE CADA MARCA
+    function muestraFotoMarca(marcaFotos) {
+        var selectImagenMarca = document.getElementById("imagenMarca");
+        var selectImagenTipo = document.getElementById("imagenTipo");
+        selectImagenMarca.getAttributeNode("src").value = marcaFotos[0];
+        selectImagenTipo.getAttributeNode("src").value = marcaFotos[0];
+    }
+
+    //FUNCION PARA MOSTRAR LA FOTO DE CADA TIPO
+    function muestraFotoTipo(arrayFotosCoches, numeroImagen) {
+        var selectImagenTipo = document.getElementById("imagenTipo");
+        selectImagenTipo.getAttributeNode("src").value = arrayFotosCoches[numeroImagen];
+    }
+
+    //FUNCION PARA MOSTRAR EL PRECIO AL CAMBIAR DE MARCA Y/O TIPO
+    function muestraPrecio(nombreMarca, nombreModelo) {
+        var selectPrecio = document.getElementById("label");
+
+        switch (nombreMarca) {
+
+            case "Peugeot":
+                if (nombreModelo == Peugeot[0]) {
+                    selectPrecio.textContent = PeugeotPrecios[0];
+                    precioActual = PeugeotPrecios[0];
+                    precioActual2 = precioActual;
+                } else {
+                    selectPrecio.textContent = PeugeotPrecios[1];
+                    precioActual = PeugeotPrecios[1];
+                    precioActual2 = precioActual;
+                }
+                break;
+
+            case "Citroen":
+                if (nombreModelo == Citroen[0]) {
+                    selectPrecio.textContent = CitroenPrecios[0];
+                    precioActual = CitroenPrecios[0];
+                    precioActual2 = precioActual;
+                } else {
+                    selectPrecio.textContent = CitroenPrecios[1];
+                    precioActual = CitroenPrecios[1];
+                    precioActual2 = precioActual;
+                }
+                break;
+
+            case "Nissan":
+                if (nombreModelo == Nissan[0]) {
+                    selectPrecio.textContent = NissanPrecios[0];
+                    precioActual = NissanPrecios[0];
+                    precioActual2 = precioActual;
+                } else {
+                    selectPrecio.textContent = NissanPrecios[1];
+                    precioActual = NissanPrecios[1];
+                    precioActual2 = precioActual;
+                }
+                break;
+
+        }
+
+    }
+
+    //FUNCION PARA BORRAR DISTINTOS TIPOS DE ELEMENTOS
+    function borraElementos(nombreElemento) {
+
+        switch (nombreElemento) {
+
+            case "tipos":
+                //BUSCO OPCIONES POR SU CLASS
+                var opciones = document.getElementsByClassName("opcion");
+                //CUANTAS OPCIONES TENGO?
+                var longitud = opciones.length;
+                for (var i = 0; i < longitud; i++) {
+                    //RECORRO OPCIONES,SUBO AL PARENT SELECT Y ELIMINO LA OPCION
+                    opciones[0].parentNode.removeChild(opciones[0]);
+                }
+                break;
+
+            case "precios":
+                var selectPrecio = document.getElementById("label");
+                precioActual = 0;
+                precioActual2 = 0;
+                selectPrecio.textContent = "";
+                break;
+
+            case "imagenTipo":
+                var selectImagenTipo = document.getElementById("imagenTipo");
+                selectImagenTipo.getAttributeNode("src").value = "";
+
+            case "extras":
+                var sin = document.getElementById("sin");
+                sin.checked = true;
+        }
+
+
+
+
+    }
+
+</script>
+</html>

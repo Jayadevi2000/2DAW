@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Concesionario</title>
+<script type="text/javascript">
+	window.onload=function(){
+		var marca=document.getElementById('marca');		
+		alert("hola1");
+		marca.onchange=ensenaMarca;
+var extras=document.getElementsByName("extras");
+	for (var i=0;i<extras.length;i++){
+		extras[i].onchange=sumaExtras;
+	}				alert("hola2");
+		extras.onMouseUp=sumaExtras;
+		var imagenMarca=document.getElementById('imagenMarca');
+				alert("hola3");
+
+		var tipo=document.getElementById('tipo');
+				alert("hola4");
+		tipo.onchange=ensenaTipo;
+		var color=document.getElementsByName('color');
+				alert("hola5");
+		color.onchange=sumaColor;
+		var imagenTipo=document.getElementById('imagenTipo');
+				alert("hola6");
+
+		var total =document.getElementById('label');
+		alert("hola7");
+	}
+						var suma=0;
+
+
+	function ensenaMarca(){alert("hola8");
+			var total =document.getElementById('label');
+			total.value="";
+		var tipo=document.getElementById('tipo');
+
+		var logo=marca.value;
+		imagenMarca.src="imgConcesionario/"+logo+".jpg";
+		alert(logo)
+		if (logo=="Citroen"){
+						total.value="";
+
+			suma+=50000;
+			var resultado=document.createTextNode(suma);
+			total.appendChild(resultado);
+			var opcionesC1="Tipo_1_Citroen";
+			var opcionesC2="Tipo_2_Citroen";
+			var opcionesC3="Tipo_3_Citroen";
+
+			var Opcion_Citroen1=document.createElement("option");
+			var Opcion_Citroen2=document.createElement("option");
+			var Opcion_Citroen3=document.createElement("option");
+
+			var Tipos_Citroen1=document.createTextNode(opcionesC1);
+			var Tipos_Citroen2=document.createTextNode(opcionesC2);
+			var Tipos_Citroen3=document.createTextNode(opcionesC3);
+
+			Opcion_Citroen1.appendChild(Tipos_Citroen1);
+			Opcion_Citroen2.appendChild(Tipos_Citroen2);
+			Opcion_Citroen3.appendChild(Tipos_Citroen3);
+
+
+			tipo.appendChild(Opcion_Citroen1);
+			tipo.appendChild(Opcion_Citroen2);
+			tipo.appendChild(Opcion_Citroen3);
+
+			
+		}
+		if (logo=="Peugeot"){			total.value="";
+
+			suma+=30000;
+			var resultado=document.createTextNode(suma);
+			total.appendChild(resultado);
+			var opcionesP1="Tipo_1_Peugeot";
+			var opcionesP2="Tipo_2_Peugeot";
+			var opcionesP3="Tipo_3_Peugeot";
+
+			var Opcion_Peugeot1=document.createElement("option");
+			var Opcion_Peugeot2=document.createElement("option");
+			var Opcion_Peugeot3=document.createElement("option");
+
+			var Tipos_Peugeot1=document.createTextNode(opcionesP1);
+			var Tipos_Peugeot2=document.createTextNode(opcionesP2);
+			var Tipos_Peugeot3=document.createTextNode(opcionesP3);
+
+			Opcion_Peugeot1.appendChild(Tipos_Peugeot1);
+			Opcion_Peugeot2.appendChild(Tipos_Peugeot2);
+			Opcion_Peugeot3.appendChild(Tipos_Peugeot3);
+
+
+			tipo.appendChild(Opcion_Peugeot1);
+			tipo.appendChild(Opcion_Peugeot2);
+			tipo.appendChild(Opcion_Peugeot3);
+
+			
+		}
+		if (logo=="Nissan"){			total.value="";
+
+			suma+=15000;
+			var resultado=document.createTextNode(suma);
+			total.appendChild(resultado);
+			var opcionesN1="Tipo_1_Nissan";
+			var opcionesN2="Tipo_2_Nissan";
+			var opcionesN3="Tipo_3_Nissan";
+
+			var Opcion_Nissan1=document.createElement("option");
+			var Opcion_Nissan2=document.createElement("option");
+			var Opcion_Nissan3=document.createElement("option");
+
+			var Tipos_Nissan1=document.createTextNode(opcionesN1);
+			var Tipos_Nissan2=document.createTextNode(opcionesN2);
+			var Tipos_Nissan3=document.createTextNode(opcionesN3);
+
+			Opcion_Nissan1.appendChild(Tipos_Nissan1);
+			Opcion_Nissan2.appendChild(Tipos_Nissan2);
+			Opcion_Nissan3.appendChild(Tipos_Nissan3);
+
+
+			tipo.appendChild(Opcion_Nissan1);
+			tipo.appendChild(Opcion_Nissan2);
+			tipo.appendChild(Opcion_Nissan3);
+
+		}alert("hola9");
+	}
+	function ensenaTipo(){
+			var total =document.getElementById('label');
+		var tipo=document.getElementById('tipo');
+
+		var logo=tipo.value;
+		imagenTipo.src="imgConcesionario/"+logo+".jpg";
+		if (logo=="Citroen"){
+			suma+=50000;
+			var resultado=document.createTextNode(suma);
+			total.appendChild(resultado);
+			
+
+			
+		}
+		if (logo=="Peugeot"){
+			suma+=30000;
+			var resultado=document.createTextNode(suma);
+			total.appendChild(resultado);
+			
+			
+		}
+		if (logo=="Nissan"){
+			suma+=15000;
+			var resultado=document.createTextNode(suma);
+			total.appendChild(resultado);
+			
+
+
+		}
+	}
+	function sumaColor(){
+
+		if (color[0].checked){
+			suma+=100;
+
+		}
+
+		if (color[1].checked){
+			suma+=200;
+
+		}
+		if (color[2].checked){
+			suma+=300;
+
+		}
+		if (color[3].checked){
+			suma+=400;
+
+		}
+		if (color[4].checked){
+			suma+=500;
+
+		}
+	}
+	function sumaExtras(){alert("hola10");
+
+		if (extras[0].checked){
+			
+		var total =document.getElementById('label');
+			total.value="";
+						suma+=500;
+			var resultado=document.createTextNode(suma);
+			total.appendChild(resultado);
+			alert("hola11");
+		}else{			total.value="";
+var total =document.getElementById('label');
+			total.value="";
+			var resultado=document.createTextNode(suma);
+			suma+=0;
+			total.appendChild(resultado);
+			alert("Hola12");
+			alert(extras.value);
+		}
+	}
+
+</script>
+<style>
+	table, tr, td {border:2px solid black; text-align:center; border-collapse:collapse;}
+	td, tr {width:200px; height:150px;}
+	div {text-align:left;}
+</style>
+
+
+<body>
+<form>
+	<table>
+		<tr>
+			<td>
+				<label>Marca:</label><br/>
+				<select id="marca">
+					<option>Peugeot</option>
+					<option>Citroen</option>
+					<option>Nissan</option>
+				</select>
+			</td>
+			<td>
+				<label>Extras:</label><br/>
+				<div>
+				<input type="radio" name="extras" id="extras" value="con" >Con Extras <br/>
+				<input type="radio" name="extras" id="extras" value="sin"  checked>Sin Extras
+				</div>
+			</td>
+			<td rowspan="2"><img id="imagenMarca" src="" width="200"></td>
+			
+		</tr>
+		<tr>
+			<td>
+				<label>Tipo:</label><br/>
+				<select id="tipo" >
+				</select>
+			</td>
+			<td>
+				<label>Color:</label><br/>
+				<div>
+				<input type="radio" name="color" id="color" value="rojo"  checked>Rojo <br/>
+				<input type="radio" name="color" id="color" value="azul" >Azul <br/>
+				<input type="radio" name="color" id="color" value="verde" >Verde <br/>
+				<input type="radio" name="color" id="color" value="blanco" >Blanco <br/>
+				<input type="radio" name="color" id="color" value="negro" >Negro
+				
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><img id="imagenTipo" src="" width="200"></td>
+			<td id="celda"><label id="label"></label></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

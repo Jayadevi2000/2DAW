@@ -1,0 +1,15 @@
+SPEAKINGs
+unidad 1
+client:Hello, I have a problem with my bus speed , and I don't now how to resolve it.
+
+manager: Do you use programs that requires many RAM?
+ 
+client: I don't think so , the problem is for example, I have only the browser operating , and 
+go very slowly.
+
+Manager: Could you check the hard drive of your computer? If the memory of your computer it's very full 
+maybe this could be the problem. In that case I advise you that put part of your files in a output device.
+
+Client: Yes , that's the case . I prove it and that's works. Thank you .
+ Manager : Your welcome.
+

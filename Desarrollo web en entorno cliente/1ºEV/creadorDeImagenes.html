@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        padding-top: 30px;
+    }
+    .imagenStyle{
+        top: 0%;
+        left: 0%;
+        margin-left: 40px;
+    }
+</style>
+<script>
+    var tamanoMultiplo = 2;
+    var tamano = 75;
+    var arrayImagenes = ["feelsgoodman.jpg","pepelaugh.jpg","pepehands.jpg"];
+    var imagenesCreadas = 0;
+    var variableArray = 0;
+
+    window.onload = function(){
+        document.getElementById("creaBoton").onclick = creaImagenes;
+        
+    }
+
+    function creaImagenes(){
+        var imagenes = prompt("cuantas imagenes quieres");
+        for(var i=0; i<imagenes;i++){
+            imagenesCreadas++;
+            var imagen = document.createElement("img");
+            imagen.setAttribute("src","imagenes/"+arrayImagenes[variableArray]);
+            imagen.setAttribute("width",tamano*tamanoMultiplo+"px");
+            imagen.setAttribute("height",tamano*tamanoMultiplo+"px");
+            imagen.setAttribute("class","imagenStyle");
+            imagen.setAttribute("id","imagen"+imagenesCreadas);
+            var division = document.getElementById("divImagenes");
+            division.appendChild(imagen);
+            tamanoMultiplo++;
+            variableArray++;
+            if(variableArray>2){
+                variableArray=0;
+            }
+            document.getElementById("borraBoton").onclick = quitarImagenes;
+        }
+
+        function quitarImagenes(){
+            var seleccion = prompt("cuantas quieres borrar?");
+            for(var i=imagenesCreadas;seleccion>0;seleccion--,i--){
+                var imagenes = document.getElementById("imagen"+i);
+                var division = document.getElementById("divImagenes");
+                division.removeChild(imagenes);
+                tamanoMultiplo--;
+                imagenesCreadas--;
+            }
+        }
+    }
+</script>
+<body>
+    <div>
+        <form>
+            <input type="button" value="crear" id="creaBoton">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="borrar" id="borraBoton">
+        </form>
+    </div>
+    <div id="divImagenes">
+        <img src="imagenes/feelsweirdmanw.jpg" width="75px" height="75px" class="imagenStyle">
+    </div>
+</body>
+</html>

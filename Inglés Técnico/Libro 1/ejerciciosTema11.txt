@@ -1,0 +1,43 @@
+Unidad 11
+1.-
+1. data of clients
+2. To analyze sales data
+
+2.- 
+1. database
+2. clients
+3. tables
+4. calculations
+5. profits
+
+3.-
+1. D
+2. B
+3. A
+4. E
+5. C
+
+4.-
+
+1. B
+2. A
+3. B
+4. C
+5. A
+6. C
+
+5.- Is a program used to analyze sales data performing calculations about cost and revenue.
+
+6.-
+1.F
+2.F
+3.T
+
+
+7.- 
+1. SPREADSHEET
+2. CALCULATE
+3. data
+4. cell
+5. formula
+6. PROFITS

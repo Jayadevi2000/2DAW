@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Ejercicio10</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+   $("tr:odd").css("background-color","green");
+   $("tr:even").css("background-color","red");
+}
+
+</script>
+</head>
+<body>
+    <table border="1">
+        <tr >
+            <td> 11111111 </td>
+            <td> 11111111 </td>
+            <td> 11111111 </td>
+        </tr>
+        <tr >
+            <td> 11111111 </td>
+            <td> 11111111 </td>
+            <td> 11111111 </td>
+        </tr>
+        <tr >
+            <td> 22222222 </td>
+            <td> 22222222 </td>
+            <td> 22222222 </td>
+        </tr>
+        <tr >
+            <td> 33333333 </td>
+            <td> 33333333 </td>
+            <td> 33333333 </td>
+        </tr>
+        <tr>
+            <td> 44444444 </td>
+            <td> 44444444 </td>
+            <td> 44444444 </td>
+        </tr>
+        
+    
+    </table>
+</body>
+</html>

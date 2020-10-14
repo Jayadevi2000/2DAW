@@ -1,0 +1,26 @@
+AUTENTICACIÓN
+
+-BASIC
+	-Authype BASIC
+	-AuthName "Acceso restringido"
+	-AuthUserFile /etc/apache2/pass/clavesB.txt
+	-Require user admin1 admin2
+	-Require valid-user
+	CREAR EL FICHERO clavesB.txt
+	$sudo httpasswd -c /etc/apache2/pass/clavesB.txt admin1
+	$sudo httpasswd -c /etc/apache2/pass/clavesB.txt admin2
+
+	IR AL DIRECTORIO A CREAR LA CARPETA CLASIFICADOS
+	<Directory /var/www/html/clasificado>
+	Options Indexes
+	Directory Index despliegue.html
+	AllowOverride None
+	Require all granted
+
+-DIGEST
+	-Authype DIGEST
+	-AuthName "Informatica"
+	-AuthUserFile /etc/apache2/pass/clavesD.txt
+	-Require user user1 user2
+	CREAR EL FICHERO clavesD.txt
+	$sudo htdigest -c /etc/apache2/pass/clavesD.txt Informatica user1

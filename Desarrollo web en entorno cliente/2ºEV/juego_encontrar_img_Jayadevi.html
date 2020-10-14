@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Juego de encontrar la imagen</title>
+	<script type="text/javascript">
+
+		window.onload=function(){
+ document.onkeydown = moverimg1;
+
+
+
+}
+  var segundos = 0;
+    var minutos = 2;
+    var llamada;
+    var ceromin='';
+    var ceroseg='';
+var coorXmouse;
+    var coorYmouse;
+ var coorX=0;
+  var coorY=0;
+var imagen="imagen1";
+ function cuentaAtras(){
+        devolvercero(minutos,segundos);
+        segundos = segundos % 60;
+        var hora=document.getElementById("reloj").value;
+        hora.innerHTML=ceromin+minutos+':'+ceroseg+segundos;
+         if (minutos ===0 && segundos ===0){
+            alert ("Se agotó su tiempo");
+            clearInterval(llamada);
+        }
+        if (segundos ==0){
+            minutos --;
+            segundos+=60;   
+        }   
+        segundos --;
+        var llamada = setInterval(cuentaAtras,1000);
+    }
+   
+    function devolvercero(minutos,segundos){
+        if (minutos<10){
+            ceromin='0';
+           
+        }
+        if (segundos<10){
+            ceroseg='0';
+           
+        }else {
+            ceroseg='';
+        }
+         return ceroseg;return ceromin;
+    }
+   
+ function moverimg1(elEvento){
+ 	 var evento = elEvento || window.event;
+ 	if (imagen=="imagen1") {
+ 		imagen1=document.getElementById("mouse");
+
+ 	}else{
+ 		imagen1=document.getElementById("dog");
+ 	}
+    switch(evento.keyCode){
+
+    	case 39://derecha
+    	  
+    	  if(coorX<1200){
+    	 coorX+=100;
+      	  imagen1.style.left = coorX+"px";
+      	}
+	break;
+		case 37://izquierda
+    	
+    	  if (coorX>0) {
+    	 coorX-=100;
+      	  imagen1.style.left = coorX+"px";}
+	break;
+	  	case 38://arriba
+    	 
+    	  if (coorY>0) {
+    	 coorY-=100;
+      	  imagen1.style.top = coorY+"px";}
+	break;
+	case 40://abajo
+    	 
+    	  if(coorY<500){
+    	 coorY+=100;
+      	  imagen1.style.top = coorY+"px";}
+	break;
+		case 13://tecla enter para desaparecer
+    	 
+    	   // imagen1.style.display="none";
+    	   imagen1.hidden=true;
+    	    coorXmouse=coorX;
+     coorYmouse=coorY;
+    	    imagen2=document.getElementById("dog");
+    	   imagen2.hidden=false;  	 
+    	   imagen="imagen2";  
+    	  coorX=0;
+    	  coorY=0;
+	break;}
+	if(imagen=="imagen2"){
+		
+
+
+	if(coorXmouse== coorX && coorYmouse== coorY){
+	alert("GANASTE");}
+    }}
+
+
+	</script>
+</head>
+<body>
+	     <div id="reloj" onload="cuentaAtras()">
+           
+       </div>
+
+<img src="img/raton.jpg" id="mouse" width= "100px" height="100px" style="position:relative; left:0px; top:0px;" ><!--hidden="true"
+Si puesiera el hidden igual a true y al ejecutar la función empezar de un botón lo desactivo sería mejor y si activara el juego con botón, pero por alguna razón el juego 
+se "descolocaría" un poco .Haga lo que haga no consigo que el temporizador se ejecute bien , pero el código
+sí que está bien , lo he probado por separado de todo lo demás y funciona. Cuando acaba el tiempo del temporizador , éste se vuelve loco , tampoco sé el porqué-->
+<img src="img/perro.jpg" id="dog" width= "100px" height="100px" hidden="true" style="position:relative; left:0px; top:0px;">
+   
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+al1:abc11:A
+al2:abc12:A
+al3:libra1:U
+al4:libra12:A
+al5:abc1:U

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+             document.onmousemove = manejarEvento;
+            //document.onclick = manejarEvento;
+        }
+
+        function manejarEvento(event){
+            var evento = event || window.event;
+            var tipo = evento.type;
+
+            var imagen = document.getElementById("joker");
+            imagen.style.left = evento.clientX+"px";
+            imagen.style.top  = evento.clientY+"px";
+
+            // alert(evento.clientX + ", " + evento.clientX);
+        }
+
+
+
+        
+        
+
+    </script>
+</head>
+<body>
+    <img id="joker" src="joker.jpg" style="position:relative; left:0px; top:0px " />
+</body>
+</html>

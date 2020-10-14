@@ -1,0 +1,2 @@
+ejercicio encuesta:
+en la base de datos cultura hacer una aplicacion encuesta 

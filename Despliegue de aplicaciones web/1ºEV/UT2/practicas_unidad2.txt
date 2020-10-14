@@ -1,0 +1,4 @@
+arp -a 
+arp -d
+ipconfig /displaydns
+ipconfig /flushdns

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 tdansitional//EN" "http://www.w3.org/td/xhtml1/DTD/xhtml1-tdansitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title></title>
+	<script type="text/javascript">
+	window.onload=function (){
+	
+	var botonPlay=document.getElementById("play");
+	botonPlay.onclick=play;
+	
+	var botonStop=document.getElementById("stop");
+	botonStop.onclick=stop;
+	
+	var boton1=document.getElementById("boton1");
+	boton1.onclick=mImagen1;
+	
+	var boton2=document.getElementById("boton2");
+	boton2.onclick=mImagen2;
+	
+	var boton3=document.getElementById("boton3");
+	boton3.onclick=mImagen3;
+	
+	
+	document.getElementById("img1").onclick=mTxt1;
+	
+	document.getElementById("img2").onclick=mTxt2;
+	
+	document.getElementById("img3").onclick=mTxt3;
+	
+	}
+
+
+	function play () {
+	var botonStop=document.getElementById("stop");
+	botonStop.disabled=false;
+	var botonPlay=document.getElementById("play");
+	botonPlay.disabled=true;
+	var boton1=document.getElementsByName("b");
+	for (i=0; i<boton1.length; i++){
+	boton1[i].disabled=false;
+		}
+	}
+	function stop () {
+	var botonStop=document.getElementById("stop");
+	botonStop.disabled=true;
+	var botonPlay=document.getElementById("play");
+	botonPlay.disabled=false;
+	var boton1=document.getElementsByName("b");
+	var imagenes=document.getElementsByName("ima");
+	var textos=document.getElementsByName("texto");
+	for (i=0; i<boton1.length; i++){
+	boton1[i].disabled=true;
+	imagenes[i].style.display="none";
+	textos[i].value="";
+		}
+	}
+	
+	
+	function mImagen1 () {
+	document.getElementById("img1").style.display="inline";
+	}
+	
+	function mImagen2 () {
+	document.getElementById("img2").style.display="inline";
+	}
+	
+	function mImagen3 () {
+	document.getElementById("img3").style.display="inline";
+	}
+	
+	function mTxt1 () {
+	document.getElementById("text1").value=document.getElementById("img1").src;
+	
+	}
+	
+	function mTxt2 () {
+	document.getElementById("text2").value=document.getElementById("img2").src;
+	
+	}
+	
+	function mTxt3 () {
+	document.getElementById("text3").value=document.getElementById("img3").src;
+	
+	}
+	
+	</script>
+	</head>
+	
+
+<body>
+<table border="2">
+	<form>
+	<tr>
+		<td><INPUT TYPE="button" id= "boton1" name="b"  disabled/></td>
+		<td><img src="imagenes/1.jpg" width="20px" height="20px" id="img1" style="display:none" name="ima"/></td>
+		<td><INPUT TYPE="text" id="text1" name="texto" /></td>
+	</tr>
+	<tr>
+		<td><INPUT TYPE="button" id= "boton2" name="b"  disabled/></td>
+		<td><img src="imagenes/2.jpg" width="20px" height="20px" id="img2" style="display:none"  name="ima"/></td>
+		<td><INPUT TYPE="text" id="text2" name="texto" /></td>
+	</tr>
+	<tr>
+		<td><INPUT TYPE="button" id= "boton3" name="b"  disabled/></td>
+		<td><img src="imagenes/3.jpg" width="20px" height="20px" id="img3" style="display:none"  name="ima"/></td>
+		<td><INPUT TYPE="text" id="text3" name="texto" /></td>
+	</tr>
+		<tr>
+		<td><INPUT TYPE="button" id= "play"   value="start"/> </td>
+		<td><INPUT TYPE="button" id= "stop"  value ="stop" disabled/></td>
+		
+		</tr>
+
+	</form>
+</table>
+</body>
+</html> 

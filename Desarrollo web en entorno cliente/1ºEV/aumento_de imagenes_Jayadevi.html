@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	window.onload=function(){
+			alert("aaa");
+			var crear1=document.getElementById("crear");
+			crear1.onclick=mostrarimagen;
+			var borrar1=document.getElementById("borrar");
+			borrar1.onclick=borrar;
+
+		};
+		function mostrarimagen(){
+
+  			var numero=prompt("Introduce el numero de imagenes que quieres:");
+					for (var i = 0; i <numero; i++) {
+        			alert=("vazz");
+				   var img1=document.createElement("imagen");
+				   img1.setAttribute("src").value = "C:/Users/jayad/Dropbox/Foto 14-2-12 16 43 14.jpg";
+				   var img2=document.getElementById("img");
+	
+                    img2.appendChild(img1);
+
+				for (var j = 200; j >200; j+10) {
+				
+				
+					img1.setAttribute("height", j );
+					img1.setAttribute("width", j +50);
+					   img1.setAttribute("left", j );
+					   img1.setAttribute("top", j );
+					}
+	 } 
+		}
+		function borrar(){
+							   var img1=document.createElement("imagen");
+				   var img2=document.getElementById("img");
+                    img2.parentNode.removeChild(img1);
+		}	//prompt, postion absolute
+	</script>
+</head>
+<body>
+	<div>
+<input type="button" id="crear" value="crear">
+<input type="button" value="borrar">
+</div>
+<img id="img" src="" position="absolute" left="20px" top="20px" height="200px" width="250px">
+</body>
+</html>

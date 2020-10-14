@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var cambiarInterval;
+        var encendido = false;
+        var horas = 0;
+        var minutos = 0;
+        var segundos = 0;
+
+        window.onload = function() {
+
+            var encender = document.getElementById("on");
+            encender.onclick = encenderCrono;
+
+            var apagar = document.getElementById("off");
+            apagar.onclick = apagarCrono;
+        }
+
+        function encenderCrono(){
+            if(encendido){
+                encendido = false;
+                clearInterval(cambiarInterval);
+            }else{
+                encendido = true;
+                cambiarInterval = setInterval(iniciarCrono, 1000);
+            }
+
+            
+        }
+
+        function apagarCrono(){
+            
+            clearInterval(cambiarInterval);
+            horas = 0;
+            minutos = 0;
+            segundos = 0;
+
+            document.getElementById("crono").innerHTML = horas+':'+minutos+':'+segundos;
+        }
+
+        function iniciarCrono(){
+
+            if(encendido){
+                segundos++;
+                if(segundos > 60){
+                    segundos = 0;
+                    minutos++;
+                }
+                if(minutos > 60){
+                    minutos = 0;
+                    horas++;
+                }
+                    
+            }else{
+
+                horas = 0;
+                minutos = 0;
+                segundos = 0;
+                
+            }
+
+            document.getElementById("crono").innerHTML = horas+':'+minutos+':'+segundos;
+        }
+        
+    </script>
+</head>
+<body>
+    
+    <div id="crono">0:0:0</div>
+
+    <br>
+
+    <input type="button" id="on" value="START/STOP"/>
+    <input type="button" id="off" value="RESET"/>
+
+</body>
+</html>

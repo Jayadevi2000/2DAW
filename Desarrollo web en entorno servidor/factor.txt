@@ -1,0 +1,7 @@
+euro:peseta:166.386
+euro:dolar:1.325
+euro:libra:0.927
+euro:yen:118.232
+euro:franco:1.515
+euro:sol:536.9
+

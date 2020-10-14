@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+
+
+
+<style type="text/css">
+div{
+	height:50px;
+	
+	}
+
+
+</style>
+</head>
+
+<body>
+    <div id="primero" class="div1">
+        <select id="animal" class="select">
+        	 <option hidden="true"> Seleccione animal</option>
+            <option>Gato</option>
+            <option>Perro</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" id="checkPrecio" />Ver precio
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label id="label"></label>
+    </div>
+    
+    <p>Marcas de comida</p>
+    
+    <div>
+  			<select id="comida" class="select">
+    				
+ 			 </select>
+     </div>        
+     <br/>
+    <div id="selectFoto">
+        
+        <div id="imagen">
+            <img id="img" src="" width="200px">
+        </div>
+    </div>
+
+
+
+
+<script>
+	var marcasPerro=["Royal Canin","Pienso Orijen","Optima"];
+	var marcasGato=["Hill","Lenda","Whiskas"];
+	var preciosPerro=[19.95,14.95,17.50];
+	var preciosGato=[14.95,9.95,12.95];
+	var selects=document.getElementById("comida");
+window.onload=function(){
+
+	var animales=document.getElementById("animal");
+	animales.onchange=eligeFoto;
+	var verPrecio=document.getElementById("checkPrecio");
+	verPrecio.onchange=muestraPrecio;
+	
+	
+	}
+	
+	function eligeFoto(){
+		var animSelect=document.getElementById("animal").value;
+		document.getElementById("img").src="Imagenes/"+animSelect+".jpg"
+		cargarComidas();
+	}
+	
+	function cargarComidas() {
+		
+		for (var i = 0 ; i<marcasPerro.length;i++){
+		var x = document.getElementById("comida");
+		x.remove(x.selectedIndex);
+        
+    	}
+		
+		if(document.getElementById("animal").value=="Perro"){
+		for(var i=0;i<marcasPerro.length;i++){
+					
+		  
+		  var option = document.createElement("option");
+		  
+		  option.text = marcasPerro[i];
+		  option.id=i;
+		  selects.appendChild(option);
+			}
+		}else
+			{
+			for(var i=0;i<marcasGato.length;i++){
+					
+		  
+		  var option = document.createElement("option");
+		  
+		  option.text = marcasGato[i];
+		  
+		  selects.appendChild(option);
+		  
+				}
+			}
+			
+	}
+	
+	function muestraPrecio(){ 
+		var div=document.getElementById("primero");
+		var label=document.getElementById("label");
+		
+	 
+    	var check=document.getElementById("checkPrecio");
+		if(check.checked==true){
+		var animales=document.getElementById("animal").value;
+		var contenido;
+
+		if(animales=="Perro"){
+		var creaLabel=document.createElement("label");
+		creaLabel.id="label";
+		div.appendChild(creaLabel);
+		
+		contenido=preciosPerro[selects.selectedIndex];
+		var texto = document.createTextNode(contenido);
+		document.getElementById("label").appendChild(texto);
+		}
+		else if(animales=="Gato"){
+		var creaLabel=document.createElement("label");
+		creaLabel.id="label";
+		div.appendChild(creaLabel);
+			
+		contenido=preciosGato[selects.selectedIndex];
+		var texto = document.createTextNode(contenido);
+		document.getElementById("label").appendChild(texto);
+			}
+		}
+		else if(check.checked==false){
+			label.parentNode.removeChild(label);
+			}
+		
+		
+}
+
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+La clase PrintWriter de Java
+Características.
+
+Clase que nos permite escribir con formato texto tanto en la salida estándar, como en ficheros,  o en streams.
+
+Hay que especificar, a través de los argumentos, dónde se va a producir la salida.
+
+EJ. 1:   PrintWriter pw1= new PrintWriter(System.out);
+EJ. 2:   PrintWriter pw2= new PrintWriter(new File("fichero.txt"));
+
+A partir de la versión 5, incluso se permite:
+
+Ej. 3:    PrintWriter pw2= new PrintWriter("fichero.txt");
+
+Implementa todos los métodos de la clase PrintStream. A diferencia de esta clase, sus métodos de escritura no se vacían automáticamente al escribir una nueva línea.
+
+Principales métodos.
+
+o   print(), escribe el argumento. Está sobrecargado para los tipos primitivos.
+pw.print(“Hola, mundo”);
+pw.print(2050);
+
+o   println(), escribe el argumento y salta de línea.
+
+o   printf(), salida con formato, similar a C.
+pw.printf(“Saludo: %s %d %n”, “Hola, mundo”, 2050);
+
+o   flush(),  vacía el stream.
+
+o   close(), cierra vaciando previamente el stream.
+
+o   write(), escribe el argumento.
+pw.write(“Hola, mundo”);
+
+
+Ejemplo:
+
+public static void main(String[] args){
+    …
+       FileWriter f = new FileWriter(“salida.txt”);
+  PrintStream ps = new PrintStream(f);
+  for (int[] fila : matriz) {
+      String st = "";
+      for (int value : fila) {
+            st += value + delimiter;
+            }
+         ps.printf("%s%n", st);
+     }
+  ps.close();
+…
+
+}
+ejemplo2
+PrintWriter writer = new PrintWriter("hola.txt");
+writer.println("Hola mundo!");
+writer.print("Esta es la linea 2!\n");
+writer.println("Esta es la linea 3!");
+writer.close();

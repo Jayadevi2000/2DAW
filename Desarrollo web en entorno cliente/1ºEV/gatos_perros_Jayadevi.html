@@ -1,0 +1,104 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio </title>
+
+<script type="text/javascript">
+
+var array_perro=["dogzilla","royal canin","libra"];
+
+var array_gato=["catzilla","true origins","purina"];
+var array_precio_comida_gato=[40,35,25];
+var array_precio_comida_perro=[54,62,75];
+ window.onload = function () {
+ 		alert("hola");
+ 	 	var animal1=document.getElementById("animal");
+ 	 	animal1.onchange=mostrarcomida,mostrar_imagen;
+		var precio1=document.getElementById("precio");
+		precio1.onclick=mostrarprecio;
+		}
+        
+        function mostrarcomida(){
+	
+		
+        	var comida1=document.getElementById("comida");
+        		if (this.value=="perro"){
+				alert("aaa");
+    		for (var i=0;i<array_perro.length;i++){
+    			 var opcion = document.createElement("option");
+                    var contenido = document.createTextNode(array_perro[i]);
+                    opcion.appendChild(contenido);
+                    comida1.appendChild(opcion);
+
+                   // contenido.parentNode.removeChild(contenido);
+    		}
+
+    	}else if (this.value=="gato"){
+    		for (var i=0;i<array_gato.length;i++){
+    			 var opcion = document.createElement("option");
+                    var contenido = document.createTextNode(array_gato[i]);
+                    opcion.appendChild(contenido);
+                    comida.appendChild(opcion);
+    }
+      } } 
+      		/*	function mostrarprecio(){//no me sale
+      				var precio1=document.getElementById("precio");
+      					if (this.value=="perro"){
+			for (var i=0;i<array_precio_comida_perro.length;i++){
+    			 var opcion = document.createElement("option");
+                    var contenido = document.createTextNode(array_precio_comida_perro[i]);
+                    opcion.appendChild(contenido);
+                    comida.appendChild(opcion);
+                    contenido.getAttributeNode("src").value = "";
+                   contenido.parentNode.removeChild(contenido);
+    		}
+    	}else if (this.value=="gato"){
+    		for (var i=0;i<array_precio_comida_gato.length;i++){
+    			 var opcion = document.createElement("option");
+                    var contenido = document.createTextNode(array_precio_comida_gato[i]);
+                    opcion.appendChild(contenido);
+                    comida.appendChild(opcion);
+                    contenido.getAttributeNode("src").value = "";
+
+    }
+      }
+
+
+
+
+       
+    	function mostrar_imagen{//no me sale
+    		alert("mostrar_imagen");
+       		if (animal1.SelectedIndex=="1"){
+    		document.getElementById("image").src = "C:/Users/jayad/OneDrive/Documentos/img_animal/Haru_perro";
+    	}else if (animal1.SelectedIndex=="2") {
+    		document.getElementById("image").src = "C:/Users/jayad/OneDrive/Documentos/img_animal/Neko_gato";
+    	}
+    }
+
+  */
+
+
+</script></head>
+
+<body>
+<select id="animal">
+	<option> </option>
+	<option value="perro" id="perro">perro</option>
+	<option value="gato" id="gato">gato</option>
+</select>
+<img id="imagenTipo" src="">
+<select id="comida">
+<option></option>
+</select>
+<input type="button" id="precio" value="Ver precio">
+  
+
+
+</body>
+</html>
+
+

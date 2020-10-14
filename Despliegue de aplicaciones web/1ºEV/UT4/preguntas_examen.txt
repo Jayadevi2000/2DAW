@@ -1,0 +1,40 @@
+	WINDOWS
+fichero de configuración
+el cliente de ésta máquina (M.V W2008)
+-configuracion del cliente:
+ipconfig /all
+la ip de la pagina web , consulta directa: nslookup www.php.es
+cuando quieres que te responda un servidor exacto : nslookup www.php.es dns.google
+consulta inversa : nslookup 10.12.3.4 
+LINUX
+consulta directa a apache
+nslookup www.apache.org
+consulta inversa:
+nslookup 125.32.65.49 (una ip que diga el enunciado)
+configuracion de red del equipo, cliente DNS
+sudo nano /etc/netplan/01-netcfg.yaml
+configuracion de las zonas :
+named.local			?
+ficheros de zona:
+sudo nano /etc/bin/db.asir.104.net	
+reiniciar el servidor dns
+sudo service bind9 restart
+hacer un status
+comprobar si es uno de los servicios activos del sistema
+ps aux|grep (bind o name)
+que puertos están escuchando:
+netstat -nltu
+(netstat -an)?
+las peticiones que hagas con nslookup con direcciones pequeñasy las grandes
+ en las transferencias de zona en tcp
+hacer una peticion para determinar cual es el nombre de dominio correspondiente a la ip 10.12.3.102:
+(consulta inversa)
+dig -x 10.12.26.104
+forzando a que te lo haga el servidor:
+dig @dns.google -x 10.12.26.104 	
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<html> 
+<head> 
+<title>Ejercicio 8</title> 
+<link rel="StyleSheet" href="estilos.css" type="text/css"> 
+<script type="text/javascript" src="jquery.js"></script>
+ 
+<script type="text/javascript" >
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos(){
+  var x;
+  x=$("#boton1");
+  x.click(ocultarEnlace1);
+
+  x=$("#boton2");
+  x.click(ocultarEnlace2);
+}
+
+function ocultarEnlace1(){
+  x=$("a[target=_blank]").hide();
+}
+
+function ocultarEnlace2(){
+  x=$("a[target!=_blank]").hide();
+}
+
+
+
+</script>
+ </head>
+ <body> 
+    <a id=enlace1 href='https://www.google.com/' target="_blank"> Google</a>
+    <input type="button" id="boton1" value="Ocultar">
+    <a id=enlace2 href='https://es.yahoo.com/?guccounter=1' target=""> Yahoo</a>
+    <input type="button" id="boton2" value="Ocultar">
+ </body> 
+</html> 

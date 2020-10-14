@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>arrays</title>
+	<script type="text/javascript">
+		var misNombres=new Array();
+			var misEdades=new Array();
+		window.onload=function(){
+			var nombre=document.getElementById('nombre').value;
+			var edad=document.getElementById('edad').value;
+			var guardar=document.getElementById('guardar');
+			guardar.onclick=guardado;
+			var mostrar=document.getElementById('mostrar');
+			mostrar.onclick=mostrado;
+		}
+		function guardado(){
+			
+			misNombres.push(nombre.value);
+			misEdades.push(parseInt(edad.value));
+			limpiar();
+		}
+		function mostrado(){
+			for (var i=0;i<misNombres.length && i<misEdades.length;i++){
+				alert(misNombres[i]);
+				alert(misEdades[i]);
+			}
+	//declaracion de variables q solo afectan a la funcion no son globales
+			var posicionmayor = 0;			
+			var posicionmenor = 100;
+			var nbmayor;
+			var nbmenor;
+		for (i=0;i<misEdades.length;i++){
+		//recorre el array de cero, comprueba q el incice no supere el numero de elementos del array 
+		//y luego aumentas el indice xq si no serias un bucle infinito
+
+			if(misEdades[i] > posicionmayor){
+			//si el valor de posicionmayor es menor al del valor de un elemnto del array
+			posicionmayor = misEdades[i];
+			//el posicionmayor recoge este valor
+			nbmayor = misNombres[i];
+			//y el nbmayor= recoge el valor del elemento del array de nombres en esa misma posicion
+			}
+			
+			if(misEdades[i] < posicionmenor){
+			//si el valor del elemnto de esa posicion marcada por el incice i del array es menor a la posicionmenor
+			posicionmenor = misEdades[i];
+			//y posicionmenor q recoja el valor de ese elemento del array
+			nbmenor = misNombres[i];
+			//y declara una variable para el nombre del menor q recoja el valor del nombre en la posicion i
+			}
+		}
+		alert("el mayor se llama: " + nbmayor + " y tiene :" + posicionmayor + " años " + " y el menor se llama: " + nbmenor + " y sus años son: "+ posicionmenor);
+		//muestra el nombre y edades del mayor y del menor
+	}
+		
+		function limpiar(){
+			nombre.value="";
+			edad.value="";
+		}
+	</script>
+</head>
+<body>
+Nombre: <input type="text" name="nombre" id="nombre"><br><br>
+Edad: <input type="number" name="edad" id="edad"><br><br>
+<input type="button" name="guardar" id="guardar" value="guardar"><br><br>
+<input type="button" name="mostrar" id="mostrar" value="mostrar">
+
+</body>
+</html>

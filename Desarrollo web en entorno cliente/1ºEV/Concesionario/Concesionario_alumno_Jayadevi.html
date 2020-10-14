@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8;iso-8859-1" />
+<title>Concesionario</title>
+<style>
+	table, tr, td {border:2px solid black; text-align:center; border-collapse:collapse;}
+	td, tr {width:200px; height:150px;}
+	div {text-align:left;}
+</style>
+<script language="JavaScript" type="text/javascript">
+window.onload=function(){
+	document.getElementById("marca").onchange=elegir;
+	var extra=document.getElementsByName("extras");
+	for (var i=0;i<extra.length;i++){
+		extra[i].onchange=precio;
+	}
+	document.getElementById("tipo").onchange=seleccionaTipo;
+	var gama=document.getElementsByName("color");
+	for (var i=0;i<gama.length;i++){
+		gama[i].onchange=precio;
+	}
+	seleccion();
+	precio();
+	seleccionaTipo();
+}
+function precio(){
+	var borra=document.getElementById("label");
+	borra.parentNode.removeChild(borra);
+
+	
+	precioTipo=0;
+	precioColor=0;
+	precioExtra=0;
+
+	var colores=document.getElementsByName("color"); 
+	var extras=document.getElementsByName("extras");
+
+	if (colores[0].checked){
+		precioColor=100;
+	}else if(colores[1].checked){
+		precioColor=200;
+	}else if(colores[2].checked){
+		precioColor=250;
+	}else if(colores[3].checked){
+		precioColor=300;
+
+	}else if(colores[4].checked){
+		precioColor=400;
+	}
+	if (extras[0].checked){
+		precioExtra=500;
+	}else if (extras[1].checked){
+		precioExtra=0;
+	}
+	var tipo=document.getElementById("tipo").value;
+	if(tipo.selectedIndex==0){
+		precioTipo=3000;
+	}
+	if(tipo.selectedIndex==1){
+		precioTipo=1850;
+	}if(tipo.selectedIndex==2){
+		precioTipo=9000;
+	}
+	var suma=parseInt(precioColor)+parseInt(precioExtra)+parseInt(precioTipo);
+	var celda=document.getElementById("celda");
+	var label=document.createElement("label");
+	label.setAttribute("id","label");
+	var precioTotal=document.createTextNode("El precio es: "+suma.toString()+" €");
+	label.appendChild(precioTotal);
+	celda.appendChild(label);
+}
+function elegir(){
+	for (var i=0;i<3;i++){
+		var borrar=document.getElementById(i);
+		borrar.parentNode.removeChild(borrar);
+	}
+	seleccionaTipo();
+	seleccion();
+	precio();
+
+}
+
+function seleccionaTipo(){ 
+	var total =document.getElementById('label');
+		var tipo=document.getElementById('tipo');
+
+		var logo=tipo.value;
+	var foto =document.getElementById("imagenTipo");
+		foto.src="imgConcesionario/"+logo+".jpg";
+
+
+        
+
+	precio();
+}
+	function seleccion(){
+	var seleccion=document.getElementById("tipo");
+	var marca=document.getElementById("marca").value;
+
+	var source="imgConcesionario/"+marca+".jpg";
+	var foto =document.getElementById("imagenMarca");
+	foto.setAttribute("src",source);
+
+		for (var i=0;i<3;i++){
+		var opcion=document.createElement("option");
+		opcion.setAttribute("id",i);
+		var contenido=document.createTextNode("Tipo: "+(i+1)+" "+marca);
+		opcion.appendChild(contenido);
+			seleccion.appendChild(opcion);
+			if (i==0){
+				opcion.setAttribute("selected","selected");
+			}
+	}
+}
+</script>
+
+<body>
+<form>
+	<table>
+		<tr>
+			<td>
+				<label>Marca:</label><br/>
+				<select id="marca">
+					<option>Peugeot</option>
+					<option>Citroen</option>
+					<option>Nissan</option>
+				</select>
+			</td>
+			<td>
+				<label>Extras:</label><br/>
+				<div>
+				<input type="radio" name="extras" id="extras" value="con">Con Extras <br/>
+				<input type="radio" name="extras" id="extras" value="sin" checked>Sin Extras
+				</div>
+			</td>
+			<td rowspan="2"><img id="imagenMarca" src="" width="200"></td>
+			
+		</tr>
+		<tr>
+			<td>
+				<label>Tipo:</label><br/>
+				<select id="tipo">
+				</select>
+			</td>
+			<td>
+				<label>Color:</label><br/>
+				<div>
+				<input type="radio" name="color" id="color" value="rojo"  checked>Rojo <br/>
+				<input type="radio" name="color" id="color" value="azul" >Azul <br/>
+				<input type="radio" name="color" id="color" value="verde" >Verde <br/>
+				<input type="radio" name="color" id="color" value="blanco" >Blanco <br/>
+				<input type="radio" name="color" id="color" value="negro" >Negro
+				
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><img id="imagenTipo" src="" width="200"></td>
+			<td id="celda"><label id="label"></label></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

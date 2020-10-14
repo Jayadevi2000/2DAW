@@ -1,0 +1,4 @@
+datareader: se almacena los datos de una consulta
+preinit: se ejecuta antes de la pagina inicio(onload)
+GridView
+Request.queryString

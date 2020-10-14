@@ -1,0 +1,28 @@
+<html> 
+<head> 
+<title>Problema</title> 
+<link rel="StyleSheet" href="estilos.css" type="text/css"> 
+<script type="text/javascript" src="jquery.js"></script>
+ 
+<script type="text/javascript" >
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+function inicializarEventos(){
+  var x;
+  x=$("#boton1");
+  x.click(resaltar);
+}
+function resaltar(){
+  var x;
+  x=$(".resaltado");
+ x.css("background-color","ffff00");
+}
+</script>
+ </head>
+ <body> 
+<p>Cuales de los siguientes lenguajes son orientados a objetos: <span class="resaltado">Java</span>, VB6, 
+<span class="resaltado">C++</span>,C, <span class="resaltado">C#</span>, Cobol ?</p>
+ <input type="button" id="boton1" value="ver resultado">
+ </body> 
+</html> 

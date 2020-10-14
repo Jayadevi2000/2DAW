@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Problema</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" >
+/*Implementemos una página que contenga una tabla con una fila y dos columna, 
+al presionar el botón del mouse dentro de una casilla de la tabla cambiar el color de fondo de la misma por amarillo
+ y cuando levantamos el dedo del mouse regresar a color blanco la casilla.*/
+var x;
+x=$(document);
+x.ready(inicializarEventos);
+
+function inicializarEventos()
+{
+  var x;
+  x=$("td");
+  x.mousedown(presionaMouse);
+  x.mouseup(sueltaMouse);
+}
+
+
+function presionaMouse()
+{
+  $(this).css("background-color","#ff0");
+}
+
+function sueltaMouse()
+{
+  $(this).css("background-color","#fff");
+}
+</script>
+</head>
+<body>
+<table border="1">
+<tr>
+<td>1111111111</td><td>1111111111</td>
+</tr>
+</table>
+</body>
+</html> 
+

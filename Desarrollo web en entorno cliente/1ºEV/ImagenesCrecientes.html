@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Imagenes crecientes</title>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload=function(){
+
+			var crear=document.getElementById("crear");
+			crear.onclick=crearImagenes;
+
+			var borrar=document.getElementById("borrar");
+			borrar.onclick=borrarImagenes;
+
+		}
+
+		function crearImagenes(){
+			var numero = prompt("Cuantas imagenes quieres crear?");
+			numero++;
+			var padre = document.getElementById("padre");
+			var img;
+			for(var i = 0; i < numero; i++){
+				img = document.createElement("img");
+				img.id = i;
+				img.src = "imagen.jpg";
+				img.height = i*100;
+				img.width = i*100;
+				img.name = "imagenes";
+				padre.appendChild(img);
+			}
+		}
+
+		function borrarImagenes(){
+			var padre = document.getElementById("padre");
+			var imagenes = document.getElementsByName("imagenes");
+			var numeroImagenes = imagenes.length;
+			for(var i = 0; i < numeroImagenes; i++){
+
+				padre.removeChild(imagenes[0]);
+			}
+			
+		}
+
+	</script>
+	<div>
+		<input type="button" value="Crear" id="crear" >
+		<input type="button" value="Borrar" id="borrar">
+	</div>
+
+	</br>
+
+	<div id="padre">
+		 <img id="img" src="imagen.jpg" width="50px">
+
+	</div>
+</body>
+</html>

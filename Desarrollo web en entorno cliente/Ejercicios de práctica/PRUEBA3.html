@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Imagenes crecientes</title>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload=function(){
+			creabotones();
+		}
+
+		function creabotones(){			
+
+			var numero = prompt("Cuántos botones quieres crear?");
+			numero++;
+		
+			for(var i = 1; i < numero; i++){
+				boton = document.createElement("input");
+				espacio=document.createElement("br");
+				espacio2=document.createElement("br");
+				boton.type="button";
+				boton.id = i;
+				espacio = document.createElement("br");
+				boton.name = "botones";
+				boton.value= "BOTON "+i;
+				boton.onclick=darBoton;
+				document.body.appendChild(boton);
+				document.body.appendChild(espacio);
+				document.body.appendChild(espacio2);
+
+			}
+			borrar=document.createElement("input");
+			borrar.type="button";
+			borrar.name="borrar";
+			borrar.value="BORRAR";
+			document.body.appendChild(borrar);
+			borrar.onclick=borraBotones;
+
+			
+		}
+		function darBoton(){
+					alert("has clickeado el botón "+boton.id);
+				}
+		
+
+		function borraBotones(){
+			var botones = document.getElementsByName("botones");
+			var numeroBotones = botones.length;
+			for(var i = 0; i < numeroBotones; i++){
+
+				document.body.removeChild(botones[0]);
+
+			}
+			
+			}
+			
+		
+
+	</script>
+
+</body>
+</html>

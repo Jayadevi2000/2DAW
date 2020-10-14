@@ -1,0 +1,27 @@
+2.-
+	1.A
+	2.C
+	3.B
+3.-
+	1.array
+	2.memory storage density
+	3.CD-R
+	4.zip drive
+	5.data compression
+	6.CD-RW
+	7.RAID
+4.-
+	1.A
+	2.B
+	3.B
+6.-
+	1.T
+	2.F
+	3.F
+7.-
+	1.DATA LOSS
+	2.SMALLER DEVICES
+	3.TOO BAD
+	4.COME UP WITH
+	5.DETAILED PROPOSAL
+	6.AS SOON AS POSIBLE

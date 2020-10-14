@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculo nota media</title>
+	<script type="text/javascript">
+					
+var misNotas=new Array();
+		window.onload=function(){alert('hola');
+			var nota =document.getElementById("nota").value;
+
+			var guardar=document.getElementById("guardar");
+			guardar.onclick=guarda;
+
+			var mostrar=document.getElementById("mostrar");
+			mostrar.onclick=muestra;
+
+		}
+		function guarda(){
+			misNotas.push(parseInt(document.getElementById("nota").value));
+			nota.value="";
+		}
+		function muestra(){
+			for (var i=0;i<misNotas.length;i++){
+				var media=0;
+		 media=media+parseInt(misNotas[i]);
+		
+}
+	var resultado=media/misNotas.length;
+		alert(resultado);
+
+	}
+	</script>
+</head>
+<body>
+Nota: <input type="number" name="nota" id="nota">
+<input type="button" name="guardar" id="guardar" value="guardar">
+<input type="button" name="mostrar" id="mostrar" value="mostrar">
+
+</body>
+</html>

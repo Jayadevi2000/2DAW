@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		document.write(prompt("Introduce el numero de lotería:"));
+		window.onload = function () {
+
+	var nuevo =document.getElementById("guard")
+	nuevo.onclick = guardarnbyedad;
+
+	document.getElementById("most").onclick = mostrarnbyedad;
+}
+var num;
+	</script>
+</head>
+<body>
+<form>
+		<table>
+			<tr>
+				<td>numero:</td>
+				<td><input type="text" id="nb"/></td>
+			</tr>
+			<tr>
+				<td>escribe numeros:</td>
+				<td><input type="text" id="edad"/></td>
+			</tr>
+			<tr>
+				<td>escribe numeros:</td>
+				<td><input type="text" id="edad"/></td>
+			</tr><tr>
+				<td>escribe numeros:</td>
+				<td><input type="text" id="edad"/></td>
+			</tr><tr>
+				<td>escribe numeros:</td>
+				<td><input type="text" id="edad"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="guard" value="Guardar" /></td>
+				<td><input type="button" id="most" value="Mostrar"/></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
